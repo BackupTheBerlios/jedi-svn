@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="de.berlios.jedi.common.entity.jisp.JispMetadata">
+		<id name="id" access="field">
+			<generator class="native"/>
+		</id>
+		
+		<property name="name"/>
+		<property name="version"/>
+		<property name="description"/>
+		<list name="jispAuthors" access="field" cascade="all,delete-orphan">
+			<key/>
+			<list-index column="sortOrder"/>
+			<many-to-many class="de.berlios.jedi.common.entity.jisp.JispAuthor" unique="true"/>
+		</list>
+		<property name="creation" type="timestamp"/>
+		<property name="home"/>
+	</class>
+</hibernate-mapping>

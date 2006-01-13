@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<pipeline-definitions>
+	<pipeline match="/*View.dox">
+		<display-name>XML and XUL User view</display-name>
+		<description>XML and XUL User view for JEDI application</description>
+		<transform type="xml" when="xul">
+			<param name="path" value="/xslt/xul.xsl"/>
+		</transform>
+		<transform type="xml" when="xml">
+			<param name="path" value="/xslt/xml.xsl"/>
+		</transform>
+	</pipeline>
+	<pipeline match="/mainView.dox">
+		<display-name>Jisp texts</display-name>
+		<description>Jisp texts from the icon being edited</description>
+		<transform type="html">
+			<param name="path" value="/xslt/html/mainView.xsl"/>
+		</transform>
+	</pipeline>
+	<pipeline match="/jispPackagesListView.dox">
+		<display-name>Jisp packages list</display-name>
+		<description>Jisp packages available to be added list</description>
+		<transform type="html">
+			<param name="path" value="/xslt/html/jispPackagesListView.xsl"/>
+		</transform>
+	</pipeline>
+	<pipeline match="/jispPackageView.dox">
+		<display-name>Jisp package</display-name>
+		<description>Jisp package being created</description>
+		<transform type="html">
+			<param name="path" value="/xslt/html/jispPackageView.xsl"/>
+		</transform>
+	</pipeline>
+	<pipeline match="/jispObjectsListView.dox">
+		<display-name>Jisp objects list</display-name>
+		<description>Jisp objects available to be added list</description>
+		<transform type="html">
+			<param name="path" value="/xslt/html/jispObjectsListView.xsl"/>
+		</transform>
+	</pipeline>
+	<pipeline match="/jispObjectsView.dox">
+		<display-name>Jisp objects</display-name>
+		<description>Jisp objects from the icon being edited</description>
+		<transform type="html">
+			<param name="path" value="/xslt/html/jispObjectsView.xsl"/>
+		</transform>
+	</pipeline>
+	<pipeline match="/jispTextsView.dox">
+		<display-name>Jisp texts</display-name>
+		<description>Jisp texts from the icon being edited</description>
+		<transform type="html">
+			<param name="path" value="/xslt/html/jispTextsView.xsl"/>
+		</transform>
+	</pipeline>
+	
+	
+	
+	<pipeline match="/Admin/*.dox">
+		<display-name>XML Admin view</display-name>
+		<description>XML Admin view for JEDI application</description>
+		<transform type="xml" when="xml">
+			<param name="path" value="/xslt/xml.xsl"/>
+		</transform>
+	</pipeline>
+	<pipeline match="/Admin/loginView.dox">
+		<display-name>Login view</display-name>
+		<description>Login view for JEDI application</description>
+		<transform type="html">
+			<param name="path" value="/xslt/html/admin/loginView.xsl"/>
+		</transform>
+	</pipeline>
+	<pipeline match="/Admin/adminView.dox">
+		<display-name>Admin view</display-name>
+		<description>Admin view for JEDI application</description>
+		<transform type="html">
+			<param name="path" value="/xslt/html/admin/adminView.xsl"/>
+		</transform>
+	</pipeline>
+</pipeline-definitions>

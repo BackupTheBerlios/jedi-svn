@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE web-app
+		PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+		"http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+	<display-name>Jisp Editor Directly on Internet</display-name>
+	<description>
+		Jisp Editor Directly on Internet project
+	</description>
+	
+	<!-- Default welcome file -->
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+	
+	
+	<!-- Standard Action Servlet Configuration (with debugging) -->
+	<servlet>
+		<servlet-name>action</servlet-name>
+		<servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+		<init-param>
+			<param-name>config</param-name>
+			<param-value>/WEB-INF/struts-config.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>2</param-value>
+		</init-param>
+		<init-param>
+			<param-name>detail</param-name>
+			<param-value>2</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+		<init-param>
+		  <param-name>stxxInit</param-name>
+		  <param-value>/stxx.properties</param-value>
+		</init-param>
+	</servlet>
+	
+	
+	<!-- Standard Action Servlet Mapping -->
+	<servlet-mapping>
+		<servlet-name>action</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+	
+	
+	<!-- Session config -->
+	<session-config>
+		<session-timeout>10</session-timeout>
+	</session-config>
+	
+	
+	<!-- Filters -->
+	<!-- InterfaceSelection -->
+	<filter>
+		<filter-name>InterfaceSelection</filter-name>
+		<filter-class>de.berlios.jedi.presentation.StxxTransformSelectionFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>InterfaceSelection</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+	
+	
+	<!-- LoginChecker -->
+	<filter>
+		<filter-name>LoginChecker</filter-name>
+		<filter-class>de.berlios.jedi.presentation.admin.LoginFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>LoginChecker</filter-name>
+		<url-pattern>/Admin/UploadJispFile.do</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>LoginChecker</filter-name>
+		<url-pattern>/Admin/DeleteJispPackage.do</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>LoginChecker</filter-name>
+		<url-pattern>/Admin/AdminView.do</url-pattern>
+	</filter-mapping>
+	
+	
+	<!-- PrepareAdminSessionChecker -->
+	<filter>
+		<filter-name>PrepareAdminSessionChecker</filter-name>
+		<filter-class>de.berlios.jedi.presentation.admin.PrepareAdminSessionFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>PrepareAdminSessionChecker</filter-name>
+		<url-pattern>/Admin/UploadJispFile.do</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>PrepareAdminSessionChecker</filter-name>
+		<url-pattern>/Admin/DeleteJispPackage.do</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>PrepareAdminSessionChecker</filter-name>
+		<url-pattern>/Admin/AdminView.do</url-pattern>
+	</filter-mapping>
+	
+	
+	<!-- NewJispPackageFilter -->
+	<filter>
+		<filter-name>NewJispPackage</filter-name>
+		<filter-class>de.berlios.jedi.presentation.editor.NewJispPackageFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>NewJispPackage</filter-name>
+		<url-pattern>/JispPackagesListView.do</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>NewJispPackage</filter-name>
+		<url-pattern>/JispPackageView.do</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>NewJispPackage</filter-name>
+		<url-pattern>/JispObjectsListView.do</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>NewJispPackage</filter-name>
+		<url-pattern>/JispObjectsView.do</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>NewJispPackage</filter-name>
+		<url-pattern>/JispTextsView.do</url-pattern>
+	</filter-mapping>
+	
+</web-app>

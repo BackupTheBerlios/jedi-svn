@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<configuration>
+	<admin>
+		<enableValidation>true</enableValidation>
+		<password>password</password>
+	</admin>
+	
+	<editor>
+		<metadata>
+			<description>Under Creative Commons license \"Attribution-NonCommercial-ShareAlike\" http://creativecommons.org/licenses/by-nc-sa/2.5/</description>
+			<home>http://jedi.berlios.de</home>
+		</metadata>
+	</editor>
+	
+	<data>
+		<jispPackagesCacheEnabled>true</jispPackagesCacheEnabled>
+	</data>
+	
+	<path>
+		<JISPSchema>http://jedi.berlios.de/schema/JISPSchema.xsd</JISPSchema>
+		<hibernateConfigFile>hibernate.cfg.xml</hibernateConfigFile>
+	</path>
+</configuration>

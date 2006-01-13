@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="de.berlios.jedi.common.entity.jisp.JispIcon">
+		<id name="id" access="field">
+			<generator class="native"/>
+		</id>
+		
+		<list name="jispTexts" access="field" cascade="all,delete-orphan">
+			<key/>
+			<list-index column="sortOrder"/>
+			<many-to-many class="de.berlios.jedi.common.entity.jisp.JispText" unique="true"/>
+		</list>
+		<list name="jispObjects" access="field" cascade="all,delete-orphan">
+			<key/>
+			<list-index column="sortOrder"/>
+			<many-to-many class="de.berlios.jedi.common.entity.jisp.JispObject" unique="true"/>
+		</list>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<?xul-overlay href="jispObjectsViewer.xul"?>
+
+<!DOCTYPE overlay [
+	
+	<!ENTITY addObjectButton.label "Add object...">
+	<!ENTITY addObjectButton.acceskey "A">
+	
+	<!ENTITY removeSelectedObjectsButton.acceskey "R">
+	<!ENTITY removeSelectedObjectsButton.label "Remove selected objects">
+	
+	<!ENTITY objectLabel.value "Object: ">
+	
+]>
+
+<overlay id="jispObjectsEditor" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	
+	<script type="application/x-javascript" src="../js/global.js"/>
+	<script type="application/x-javascript" src="../js/overlay/jispObjectsEditor.js"/>
+	<script type="application/x-javascript" src="../js/overlay/jispObjectsViewer.js"/>
+	
+	<commandset id="jispObjectsEditorCommands">
+		<command id="addObjectsToIconCmd" oncommand="addObjectsToIcon();"/>
+		<command id="addObjectCmd" oncommand="addObject();" disabled="true"/>
+		<command id="removeSelectedObjectsCmd" oncommand="removeSelectedObjects();" disabled="true"/>
+	</commandset>
+	
+	<vbox id="jispObjectsEditor" flex="1">
+		<vbox id="jispObjectsViewer" flex="1"/>
+		
+		<hbox pack="end" align="center">
+			<spacer flex="1"/>
+			<button id="addObjectsToIcon" command="addObjectsToIconCmd" hidden="true"/>
+			
+			<button id="addObjectButton" label="&addObjectButton.label;" default="true" command="addObjectCmd" accesskey="&addObjectButton.acceskey;"/>	
+			<button id="removeSelectedObjectsButton" label="&removeSelectedObjectsButton.label;" command="removeSelectedObjectsCmd" accesskey="&removeSelectedObjectsButton.acceskey;"/>	
+		</hbox>
+	</vbox>
+</overlay>

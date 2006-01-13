@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<icondef>
+	<icon>
+		<text>:)</text>
+		<text>:-)</text>
+		<object mime="image/png">images/smile.png</object>
+	</icon>
+	<icon>
+		<text>:D</text>
+		<text>:-D</text>
+		<object mime="image/png">images/bigSmile.png</object>
+		<object mime="image/svg+xml">images/svg/bigSmile.svg</object>
+	</icon> 
+</icondef>

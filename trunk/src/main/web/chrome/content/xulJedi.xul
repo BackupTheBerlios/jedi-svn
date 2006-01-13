@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<!DOCTYPE window [
+	
+	<!ENTITY window.title "Jisp Editor Directly on Internet">
+	
+	<!ENTITY menuFile.label "File">
+	<!ENTITY menuFile.accesskey "F">
+	
+	<!ENTITY menuFileClose.label "Close">
+	<!ENTITY menuFileClose.key "C">
+	<!ENTITY menuFileClose.accesskey "C">
+	
+	<!ENTITY menuFileNew.label "New">
+	<!ENTITY menuFileNew.key "N">
+	<!ENTITY menuFileNew.accesskey "N">
+	
+	<!ENTITY menuFileExit.label "Exit">
+	<!ENTITY menuFileExit.key "E">
+	<!ENTITY menuFileExit.accesskey "E">
+	
+	
+	
+	<!ENTITY menuHelp.label "Help">
+	<!ENTITY menuHelp.accesskey "H">
+	
+	<!ENTITY menuHelpAbout.label "About J.E.D.I.">
+	<!ENTITY menuHelpAbout.key "A">
+	<!ENTITY menuHelpAbout.accesskey "A">
+	
+]>
+
+<window id="xulJediWindow" title="&window.title;" onload="init();" minwidth="250" persist="screenX screenY width height" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	
+	<script type="application/x-javascript" src="js/global.js"/>
+	<script type="application/x-javascript" src="js/xulJedi.js"/>
+	
+	<commandset id="maincommands">
+		<command id="menuFileNewCmd" oncommand="newJisp();"/>
+		<command id="menuFileCloseCmd" oncommand="closeJisp();" disabled="true"/>
+		<command id="menuFileExitCmd" oncommand="closeWindow();"/>
+		
+		<command id="menuHelpAboutCmd" oncommand="openAboutJediWindow();"/>
+	</commandset>
+	
+	<commandset id="jispTextsEditorCommands"/>
+	<commandset id="jispObjectsEditorCommands"/>
+	
+	<keyset id="mainkeys">
+		<key
+			id        =  "menuFileNewKey"
+			key       = "&menuFileNew.key;"
+			observes  =  "menuFileNewCmd"
+			modifiers =  "accel" />
+		<key
+			id        =  "menuFileCloseKey"
+			key       = "&menuFileClose.key;"
+			observes  =  "menuFileCloseCmd"
+			modifiers =  "accel" />
+		<key
+			id        =  "menuFileExitKey"
+			key       = "&menuFileExit.key;"
+			observes  =  "menuFileExitCmd"
+			modifiers =  "accel" />
+		
+		
+		<key
+			id        =  "menuHelpAboutKey"
+			key       = "&menuHelpAbout.key;"
+			observes  =  "menuHelpAboutCmd"
+			modifiers =  "accel" />
+	</keyset>
+	
+	<toolbox id="mainToolbox">
+		<menubar id="menu">
+			<menu id="menuFile" label="&menuFile.label;" accesskey="&menuFile.accesskey;">
+				<menupopup id="menuFilePopup">
+					<menuitem
+						id        =  "menuFileNew"
+						key       =  "menuFileNewKey"
+						label     =  "&menuFileNew.label;"
+						command   =  "menuFileNewCmd"
+						accesskey =  "&menuFileNew.accesskey;"/>
+					<menuitem
+						id        =  "menuFileClose"
+						key       =  "menuFileCloseKey"
+						label     =  "&menuFileClose.label;"
+						command   =  "menuFileCloseCmd"
+						accesskey =  "&menuFileClose.accesskey;"/>
+					<menuseparator/>
+					<menuitem
+						id        =  "menuFileExit"
+						key       =  "menuFileExitKey"
+						label     =  "&menuFileExit.label;"
+						command   =  "menuFileExitCmd"
+						accesskey =  "&menuFileExit.accesskey;"/>
+				</menupopup>
+			</menu>
+			<menu id="menuHelp" label="&menuHelp.label;" accesskey="&menuHelp.accesskey;">
+				<menupopup id="menuHelpPopup">
+					<menuitem
+						 id        =  "menuHelpAbout"
+						 key       =  "menuHelpAboutKey"
+						 label     =  "&menuHelpAbout.label;"
+						 command   =  "menuHelpAboutCmd"
+						 accesskey =  "&menuHelpAbout.accesskey;"/>
+				</menupopup>
+			</menu>
+		</menubar>
+	</toolbox>
+	
+	<iframe id="jispEditorFrame" src="" flex="1"/>
+	
+</window>

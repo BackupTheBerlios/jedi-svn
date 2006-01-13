@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	
+	<head>
+		<title>Psi How-to</title>
+		<meta name="GENERATOR" content="Quanta Plus"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<meta name="language" content="en"/>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+	</head>
+	
+	<body>
+		<div id="main">
+			
+			<!-- Menu -->
+			<div id="menu">
+				<ul>
+					<li><a href="#about">About Psi</a></li>
+					<li><a href="#installing">Installing packages</a>
+						<ul>
+							<li><a href="#installingLinux">In Linux</a></li>
+							<li><a href="#installingWindows">In Windows</a></li>
+						</ul>
+					</li>
+					<li><a href="#configuring">Configuring Psi</a></li>
+					<li><a href="index.html">Return</a></li>
+				</ul>
+			</div>
+			
+			<!-- Content -->
+			<div id="content">
+				<div class="section">
+					<h2><a name="about" class="anchorLink">About Psi</a></h2>
+					<p><a href="http://www.psi-im.org">Psi</a> is a <a href="http://www.jabber.org">Jabber</a> <a href="http://en.wikipedia.org/wiki/Instant_Messaging">Instant Messaging</a> client. It is licensed under the <a href="http://www.gnu.org/copyleft/gpl.html">GPL</a> and runs on GNU/Linux, Mac OS X and Windows.</p>
+					<p> But I'm not here to sell you this app. If you want further information about Psi, please refer to the <a href="http://www.jabber.org">official webpage</a> or the <a href="http://psi-im.org/wiki/Main_Page">Psi wiki</a>.</p>
+				</div>
+				<div class="section">
+					<h2><a name="installing" class="anchorLink">Installing jisp packages</a></h2>
+					<p>Before configuring Psi to use the jisp packages, you must extract the downloaded file into a specific directory.
+						Jisp files are simple zip files, so you can extract them with any uncompression program which supports zip files. The directory to extract the files to can be named as you like.</p>
+ 					<p>The path to the directory will depend on what system are you using and if you want the package to be accesible only for your user, or for all the users in the system.</p>
+					<ul>
+						<li><a href="#installingLinux">In Linux</a></li>
+						<li><a href="#installingWindows">In Windows</a></li>
+					</ul>
+				</div>
+				<div class="section">
+					<h2><a name="installingLinux" class="anchorLink">In Linux</a></h2>
+					<div class="section2">
+						<h3>For your user</h3>
+						<p>Extract the contents of the downloaded jisp file to a directory in the ~/.psi/iconsets/emoticons directory.</p>
+						<p>~ referes to your home directory. If your user is called "foo", your home directory will likely be "/home/foo" (without quotes, of course)</p>
+						<p>If there is no iconsets/emoticons directory, create it.</p>
+					</div>
+					<div class="section2">
+						<h3>For all the users</h3>
+						<p>Extract the contents of the downloaded jisp file to a directory in the iconsets/emoticons in your Psi shared directory.</p>
+						<p>This directory will depend on how did you install Psi. But in most cases, /usr/share/psi/iconsets/emoticons is the directory you are looking for.</p>
+						<p>There are a lot chances that you'll need root permissions to copy files into this directory.</p>
+					</div>
+				</div>
+				<div class="section">
+					<h2><a name="installingWindows" class="anchorLink">In Windows</a></h2>
+					<div class="section2">
+						<h3>For your user</h3>
+						<p>This will work if your system is Windows NT or XP. For others versions, please take a look at the section to install for all the users.</p>
+						<p>Extract the contents of the downloaded jisp file to a directory in the ~\PsiData\iconsets\emoticons directory.</p>
+						<p>~ referes to your home directory. If your user is called "foo", your home directory will likely be "c:\Documents and settings\foo" (without quotes, of course).</p>
+						<p>If there is no iconsets\emoticons directory, create it.</p>
+					</div>
+					<div class="section2">
+						<h3>For all the users</h3>
+						<p>Extract the contents of the downloaded jisp file to a directory in the iconsets\emoticons in your Psi shared directory.</p>
+						<p>This directory will depend on how did you install Psi. But in most cases, c:\Program files\psi\iconsets\emoticons is the directory you are looking for. The name of the "Program files" directory will depend on your Windows language. For example, in spanish it's called "Archivos de programa".</p>
+					</div>
+				</div>
+				<div class="section">
+					<h2><a name="configuring" class="anchorLink">Configuring Psi to use the packages</a></h2>
+					<p>Go to the Psi options in the Main Window. Once in the Options, go to the "Emoticons" section.</p>
+					<p>There you'll have a list with all the available packages. With the arrows you can give a package more priority than other. That means that if an icon has the same text in two packages, the object of the one with a higher priority will be shown.</p>
+					<p>After giving the packages the desired priority, select the ones you'd want Psi to use in your conversations.</p>
+				</div>
+			</div>
+			
+			<!-- Footer -->
+			<div id="footer">
+				<div id="validation">
+					<a href="http://validator.w3.org/check?uri=referer">
+						<img src="images/valid-xhtml10.png" alt="Valid XHTML 1.0 Strict!" height="31" width="88" />
+					</a>
+					<a href="http://jigsaw.w3.org/css-validator/check/referer">
+						<img src="images/valid-css.png" alt="Valid CSS!" height="31" width="88" />
+					</a>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

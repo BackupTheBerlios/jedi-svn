@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE	struts-config PUBLIC
+		"-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+		"http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+<!-- ================================================ Form Bean Definitions -->
+
+	<form-beans>
+		<form-bean name="UploadJispFileForm" type="de.berlios.jedi.presentation.admin.UploadJispFileForm"/>
+	</form-beans>
+
+<!-- ========================================= Global Exception Definitions -->
+
+
+<!-- =========================================== Global Forward Definitions -->
+
+	<global-forwards>
+		<forward name="addStatus" path="/AddStatus.do"/>
+		<forward name="error" path="/ErrorView.do"/>
+	</global-forwards>
+
+<!-- =========================================== Action Mapping Definitions -->
+
+	<action-mappings>
+		<!-- Admin actions -->
+		<action	path="/Admin/Login" type="de.berlios.jedi.presentation.admin.LoginAction">
+			<forward name="success" path="/Admin/PrepareAdminSession.do"/>
+			<forward name="incorrectPassword" path="/Admin/LoginView.do"/>
+			<forward name="logout" path="/Admin/Logout.do"/>
+		</action>
+		
+		<action	path="/Admin/PrepareAdminSession" type="de.berlios.jedi.presentation.admin.PrepareAdminSessionAction">
+			<forward name="adminView" path="/Admin/AdminView.do"/>
+			<forward name="/Admin/AdminView.do" path="/Admin/AdminView.do"/>
+			<forward name="/Admin/UploadJispFile.do" path="/Admin/UploadJispFile.do"/>
+			<forward name="/Admin/DeleteJispPackage.do" path="/Admin/DeleteJispPackage.do"/>
+		</action>
+		
+		<action	path="/Admin/Logout" type="de.berlios.jedi.presentation.admin.LogoutAction">
+			<forward name="success" path="/Admin/LoginView.do"/>
+		</action>
+		
+		<action	path="/Admin/UploadJispFile" name="UploadJispFileForm" type="de.berlios.jedi.presentation.admin.UploadJispFileAction">
+			<forward name="success" path="/Admin/PrepareAdminSession.do"/>
+		</action>
+
+		<action	path="/Admin/DeleteJispPackage" type="de.berlios.jedi.presentation.admin.DeleteJispPackageAction">
+			<forward name="success" path="/Admin/AdminView.do"/>
+		</action>
+		
+		<action	path="/Admin/GetJispObject" type="de.berlios.jedi.presentation.admin.GetJispObjectAction">
+		</action>
+		
+		
+		<!-- Jisp customizing actions -->
+		<action	path="/NewJispPackage"
+			type="de.berlios.jedi.presentation.editor.NewJispPackageAction">
+			<forward name="success" path="/JispPackageView.do"/>
+			
+			<forward name="/JispPackagesListView.do" path="/JispPackagesListView.do"/>
+			<forward name="/JispPackageView.do" path="/JispPackageView.do"/>
+			<forward name="/JispObjectsListView.do" path="/JispObjectsListView.do"/>
+			<forward name="/JispObjectsView.do" path="/JispObjectsView.do"/>
+			<forward name="/JispTextsView.do" path="/JispTextsView.do"/>
+		</action>
+		
+		<action	path="/AddPackageToPackage"
+			type="de.berlios.jedi.presentation.editor.AddPackageToPackageAction">
+			<forward name="success" path="/JispPackagesListView.do"/>
+		</action>
+		
+		<action	path="/AddIconToPackage"
+			type="de.berlios.jedi.presentation.editor.AddIconToPackageAction">
+			<forward name="success" path="/JispPackagesListView.do"/>
+		</action>
+		
+		<action	path="/AddObjectToIcon"
+			type="de.berlios.jedi.presentation.editor.AddObjectToIconAction">
+			<forward name="success" path="/JispObjectsListView.do"/>
+		</action>
+		
+		<action	path="/AddTextToIcon"
+			type="de.berlios.jedi.presentation.editor.AddTextToIconAction">
+			<forward name="success" path="/JispTextsView.do"/>
+		</action>
+		
+		<action	path="/RemoveIconFromPackage"
+			type="de.berlios.jedi.presentation.editor.RemoveIconFromPackageAction">
+			<forward name="success" path="/JispPackageView.do"/>
+		</action>
+		
+		<action	path="/RemoveObjectFromIcon"
+			type="de.berlios.jedi.presentation.editor.RemoveObjectFromIconAction">
+			<forward name="success" path="/JispObjectsView.do"/>
+		</action>
+		
+		<action	path="/RemoveTextFromIcon"
+			type="de.berlios.jedi.presentation.editor.RemoveTextFromIconAction">
+			<forward name="success" path="/JispTextsView.do"/>
+		</action>
+		
+		<action	path="/DownloadPackage"
+			type="de.berlios.jedi.presentation.editor.DownloadPackageAction">
+		</action>
+		
+		<action	path="/GetJispObject"
+			type="de.berlios.jedi.presentation.editor.GetJispObjectAction">
+		</action>
+		
+		<action	path="/CloseJispPackage"
+			type="de.berlios.jedi.presentation.editor.CloseJispPackageAction">
+			<forward name="success" path="/MainView.do"/>
+		</action>
+		
+		
+		
+		<!--
+		   Application views
+		-->
+		<action	path="/MainView"
+			type="de.berlios.jedi.presentation.view.MainViewAction">
+		</action>
+		
+		
+		<action path="/ErrorView" type="de.berlios.jedi.presentation.view.ErrorViewAction">
+			<forward name="loginIncorrectPassword" path="/Admin/loginView.dox"/>
+			
+			<forward name="adminMissedId" path="/Admin/adminView.dox"/>
+			<forward name="adminInvalidId" path="/Admin/adminView.dox"/>
+			<forward name="adminFailedJispPackageDeleting" path="/Admin/adminView.dox"/>
+			
+			<forward name="adminInvalidUploadForm" path="/Admin/adminView.dox"/>
+			<forward name="adminMissedUploadFile" path="/Admin/adminView.dox"/>
+			<forward name="adminFailedFileUploading" path="/Admin/adminView.dox"/>
+			<forward name="adminInvalidIcondef" path="/Admin/adminView.dox"/>
+			<forward name="adminInvalidJispFile" path="/Admin/adminView.dox"/>
+			<forward name="adminFailedJispFileSaving" path="/Admin/adminView.dox"/>
+			
+			<forward name="adminFailedJispPackagesListGetting" path="/Admin/adminView.dox"/>
+			
+			<forward name="adminFailedJispObjectWriteToOutputStream" path="/Admin/adminView.dox"/>
+			
+			
+			<forward name="missedId" path="/jispPackageView.dox"/>
+			<forward name="invalidId" path="/jispPackageView.dox"/>
+			
+			<forward name="missedText" path="/jispTextsView.dox"/>
+			
+			<forward name="incompleteJispPackage" path="/jispPackageView.dox"/>
+			<forward name="utf8NotSupported" path="/jispPackageView.dox"/>
+			<forward name="failedJispFileWriteToOutputStream" path="/jispPackageView.dox"/>
+			
+			<forward name="failedJispPackagesListGetting" path="/jispPackageView.dox"/>
+			
+			<forward name="failedJispObjectWriteToOutputStream" path="/jispPackageView.dox"/>
+		</action>
+		
+		
+		<!-- Admin actions views-->
+		<action path="/Admin/LoginView" type="de.berlios.jedi.presentation.admin.view.LoginViewAction">
+			<forward name="loginView" path="/Admin/loginView.dox"/>
+		</action>
+		
+		<action path="/Admin/AdminView" type="de.berlios.jedi.presentation.admin.view.AdminViewAction">
+			<forward name="adminView" path="/Admin/adminView.dox"/>
+		</action>
+		
+		
+		<!-- Jisp customizing actions views -->
+		<action	path="/JispPackagesListView"
+			type="de.berlios.jedi.presentation.editor.view.JispPackagesListViewAction">
+		</action>
+		
+		<action	path="/JispPackageView"
+			type="de.berlios.jedi.presentation.editor.view.JispPackageViewAction">
+		</action>
+		
+		<action	path="/JispObjectsListView"
+			type="de.berlios.jedi.presentation.editor.view.JispObjectsListViewAction">
+		</action>
+		
+		<action	path="/JispObjectsView"
+			type="de.berlios.jedi.presentation.editor.view.JispObjectsViewAction">
+		</action>
+		
+		<action	path="/JispTextsView"
+			type="de.berlios.jedi.presentation.editor.view.JispTextsViewAction">
+		</action>
+		
+		<action	path="/AddStatus"
+			type="de.berlios.jedi.presentation.view.AddStatusAction">
+			<forward name="mainView" path="/mainView.dox"/>
+			
+			<forward name="jispPackagesListView" path="/jispPackagesListView.dox"/>
+			<forward name="jispPackageView" path="/jispPackageView.dox"/>
+			<forward name="jispObjectsListView" path="/jispObjectsListView.dox"/>
+			<forward name="jispObjectsView" path="/jispObjectsView.dox"/>
+			<forward name="jispTextsView" path="/jispTextsView.dox"/>
+		</action>
+		
+	</action-mappings>
+
+<!-- ============================================= Controller Configuration -->
+
+	<controller contentType ="text/html; charset=utf-8"/>
+
+<!-- ======================================== Message Resources Definitions -->
+
+	<message-resources	parameter="de.berlios.jedi.presentation.ApplicationResources"
+				factory="com.oroad.stxx.util.PropertyMessageResourcesFactory"/>
+
+<!-- =============================================== Plug Ins Configuration -->
+
+	<plug-in className="com.oroad.stxx.plugin.StxxPlugin" >
+		<set-property	property="pipeline-config"
+				value="/WEB-INF/stxx-pipelines.xml" />
+	</plug-in>
+
+</struts-config>
