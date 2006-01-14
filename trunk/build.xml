@@ -84,8 +84,8 @@
 		<include name="**/*.properties"/>
 		
 		<!-- Exclude conf files used for testing -->
-		<exclude name="jediExternal.cfg.xml"/>
-		<exclude name="hibernateExternal.cfg.xml"/>
+		<exclude name="jediOverriden.cfg.xml"/>
+		<exclude name="hibernateTest.cfg.xml"/>
 		
 	</patternset>
 	

@@ -3,6 +3,6 @@
 <configuration>
 	<path>
 		<JISPSchema>doc/schema/JISPSchema.xsd</JISPSchema>
-		<hibernateConfigFile>hibernateExternal.cfg.xml</hibernateConfigFile>
+		<hibernateConfigFile>hibernateTest.cfg.xml</hibernateConfigFile>
 	</path>
 </configuration>
