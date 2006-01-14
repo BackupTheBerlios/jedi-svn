@@ -9,7 +9,7 @@
 <!-- 				Universidad de Oviedo 			-->
 <!-- ****************************************************************** -->
 
-<project name="Jisp Editor Directly on Internet" default="deploy-jboss" basedir=".">
+<project name="Jisp Editor Directly on Internet" default="war" basedir=".">
 	
 	<!-- Project General Properties -->
 	<property name="name" value="Jisp Editor Directly on Internet"/>
