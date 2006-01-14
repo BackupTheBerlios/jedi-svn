@@ -14,6 +14,7 @@
 
 package de.berlios.jedi.common.entity.jisp;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -23,8 +24,13 @@ import java.util.List;
  * This class simply encapsulates a list, limiting storable objects to
  * JispPackages.
  */
-public class JispPackagesList {
+public class JispPackagesList implements Serializable {
 
+	/**
+	 * Generated <code>serialVersionUID</code>.
+	 */
+	private static final long serialVersionUID = -1873083403562274159L;
+	
 	/**
 	 * The list where JispPackages will be stored.
 	 */

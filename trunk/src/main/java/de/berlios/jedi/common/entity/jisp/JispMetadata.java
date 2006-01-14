@@ -14,6 +14,7 @@
 
 package de.berlios.jedi.common.entity.jisp;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -25,7 +26,12 @@ import java.util.List;
  * and webpage for the package.<br>
  * Objects from this class will be persisted.
  */
-public class JispMetadata implements Cloneable {
+public class JispMetadata implements Cloneable, Serializable {
+
+	/**
+	 * Generated <code>serialVersionUID</code>.
+	 */
+	private static final long serialVersionUID = -8141671710888244895L;
 
 	/**
 	 * Persistent identifier.

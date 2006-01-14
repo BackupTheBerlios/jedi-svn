@@ -14,6 +14,7 @@
 
 package de.berlios.jedi.common.entity.jisp;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -23,7 +24,12 @@ import java.util.List;
  * Contains JispObjects and JispTexts.<br>
  * Objects from this class will be persisted.
  */
-public class JispIcon implements Cloneable {
+public class JispIcon implements Cloneable, Serializable {
+
+	/**
+	 * Generated <code>serialVersionUID</code>.
+	 */
+	private static final long serialVersionUID = -4624136439245050109L;
 
 	/**
 	 * Persistent identifier.

@@ -14,11 +14,18 @@
 
 package de.berlios.jedi.common.entity.jisp;
 
+import java.io.Serializable;
+
 /**
  * Represents an author in the metadata information of a Jisp package.<br>
  * Objects from this class will be persisted.
  */
-public class JispAuthor implements Cloneable {
+public class JispAuthor implements Cloneable, Serializable {
+
+	/**
+	 * Generated <code>serialVersionUID</code>.
+	 */
+	private static final long serialVersionUID = 1193678141353620650L;
 
 	/**
 	 * Persistent identifier.

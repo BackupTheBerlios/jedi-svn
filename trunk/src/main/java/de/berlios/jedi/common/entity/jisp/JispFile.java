@@ -14,6 +14,7 @@
 
 package de.berlios.jedi.common.entity.jisp;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
 /**
@@ -21,8 +22,13 @@ import java.util.Arrays;
  * objects).<br>
  * It stores the file as a byte array.
  */
-public class JispFile {
+public class JispFile implements Serializable {
 
+	/**
+	 * Generated <code>serialVersionUID</code>.
+	 */
+	private static final long serialVersionUID = -263719624867306204L;
+	
 	/**
 	 * The byte array containing the jisp file.
 	 */

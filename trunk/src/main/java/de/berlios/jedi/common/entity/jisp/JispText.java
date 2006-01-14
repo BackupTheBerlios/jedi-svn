@@ -14,10 +14,17 @@
 
 package de.berlios.jedi.common.entity.jisp;
 
+import java.io.Serializable;
+
 /**
  * Represents a text element of a Jisp Icon.
  */
-public class JispText implements Cloneable {
+public class JispText implements Cloneable, Serializable {
+
+	/**
+	 * Generated <code>serialVersionUID</code>.
+	 */
+	private static final long serialVersionUID = -7590422522608185712L;
 
 	/**
 	 * Persistent identifier.
