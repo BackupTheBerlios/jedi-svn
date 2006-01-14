@@ -1,3 +1,4 @@
+package de.berlios.jedi;
 /*
  * Copyright 2005-2006 Daniel Calviño Sánchez
  * 
