@@ -19,17 +19,13 @@
 	<xsl:output method="xml" />
 	
 	<!--
-		Process only the jedi child.
+		Copies the jedi and messages elements and its children.
 	-->
 	<xsl:template match="stxx">
-		<xsl:apply-templates select="jedi"/>
+		<stxx>
+			<xsl:copy-of select="jedi"/>
+			<xsl:copy-of select="messages"/>
+		</stxx>
 	</xsl:template>
 	
-	<!--
-		Copies the jedi element and its children.
-	-->
-	<xsl:template match="jedi">
-		<xsl:copy-of select="."/>
-	</xsl:template>
-
 </xsl:stylesheet>
