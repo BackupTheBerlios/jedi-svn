@@ -37,9 +37,9 @@
 				</div>
 				<div class="section">
 					<h2><a name="installing" class="anchorLink">Installing jisp packages</a></h2>
-					<p>Before configuring Psi to use the jisp packages, you must extract the downloaded file into a specific directory.
-						Jisp files are simple zip files, so you can extract them with any uncompression program which supports zip files. The directory to extract the files to can be named as you like.</p>
- 					<p>The path to the directory will depend on what system are you using and if you want the package to be accesible only for your user, or for all the users in the system.</p>
+					<p>Before configuring Psi to use the jisp packages, you must copy the downloaded file into a specific directory. The path to the directory will depend on what system are you using and if you want the package to be accesible only for your user, or for all the users in the system.</p>
+					<p>The instructions are made assuming that you will only have one package downloaded from J.E.D.I. The copied jisp file must be called "JEDIPackage.jisp", or it won't work (the name of the file without the jisp extension must match the name of the internal root directory compressed in the jisp file).</p>
+					<p>If you have more than one, wherever you read "copy the downloaded jisp file", think in "extract the contents of the downloaded jisp file". Jisp files are regular zip files, so you wouldn't have problem to extract ther contents. Once extracted, rename the extracted directory called "JEDIPackage" to another name, so there are not duplicated names.</p>
 					<ul>
 						<li><a href="#installingLinux">In Linux</a></li>
 						<li><a href="#installingWindows">In Windows</a></li>
@@ -49,13 +49,13 @@
 					<h2><a name="installingLinux" class="anchorLink">In Linux</a></h2>
 					<div class="section2">
 						<h3>For your user</h3>
-						<p>Extract the contents of the downloaded jisp file to a directory in the ~/.psi/iconsets/emoticons directory.</p>
+						<p>Copy the downloaded jisp file to the ~/.psi/iconsets/emoticons directory.</p>
 						<p>~ referes to your home directory. If your user is called "foo", your home directory will likely be "/home/foo" (without quotes, of course)</p>
 						<p>If there is no iconsets/emoticons directory, create it.</p>
 					</div>
 					<div class="section2">
 						<h3>For all the users</h3>
-						<p>Extract the contents of the downloaded jisp file to a directory in the iconsets/emoticons in your Psi shared directory.</p>
+						<p>Copy the downloaded jisp file to the iconsets/emoticons in your Psi shared directory.</p>
 						<p>This directory will depend on how did you install Psi. But in most cases, /usr/share/psi/iconsets/emoticons is the directory you are looking for.</p>
 						<p>There are a lot chances that you'll need root permissions to copy files into this directory.</p>
 					</div>
@@ -65,13 +65,13 @@
 					<div class="section2">
 						<h3>For your user</h3>
 						<p>This will work if your system is Windows NT or XP. For others versions, please take a look at the section to install for all the users.</p>
-						<p>Extract the contents of the downloaded jisp file to a directory in the ~\PsiData\iconsets\emoticons directory.</p>
+						<p>Copy the downloaded jisp file to the ~\PsiData\iconsets\emoticons directory.</p>
 						<p>~ referes to your home directory. If your user is called "foo", your home directory will likely be "c:\Documents and settings\foo" (without quotes, of course).</p>
 						<p>If there is no iconsets\emoticons directory, create it.</p>
 					</div>
 					<div class="section2">
 						<h3>For all the users</h3>
-						<p>Extract the contents of the downloaded jisp file to a directory in the iconsets\emoticons in your Psi shared directory.</p>
+						<p>Copy the downloaded jisp file to the iconsets\emoticons in your Psi shared directory.</p>
 						<p>This directory will depend on how did you install Psi. But in most cases, c:\Program files\psi\iconsets\emoticons is the directory you are looking for. The name of the "Program files" directory will depend on your Windows language. For example, in spanish it's called "Archivos de programa".</p>
 					</div>
 				</div>

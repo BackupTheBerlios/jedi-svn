@@ -142,7 +142,7 @@ public class JispPackageForTests {
 		jispPackage = new JispPackage();
 
 		jispMetadata = new JispMetadata();
-		jispMetadata.setName("test");
+		jispMetadata.setName("jisp package for tests");
 		jispMetadata.setVersion("1.0");
 		jispMetadata.setDescription("none");
 		jispMetadata.setCreation(new Date());

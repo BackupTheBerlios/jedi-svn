@@ -104,8 +104,11 @@ public class DownloadPackageAction extends ActionWithErrorSupport {
 		}
 
 		response.setContentType("application/vnd.jisp");
+		// Filename should be like the package name set in metadata, but with
+		// capitalized first letters and without white spaces to be equal to the
+		// name of the root directory of the jisp file
 		response.setHeader("Content-disposition",
-				"attachment; filename=\"package.jisp\"");
+				"attachment; filename=\"JEDIPackage.jisp\"");
 
 		ServletOutputStream out = null;
 		try {
@@ -156,7 +159,7 @@ public class DownloadPackageAction extends ActionWithErrorSupport {
 			jispPackage.setJispMetadata(jispMetadata);
 		}
 
-		jispMetadata.setName("Jisp Editor Directly on Internet");
+		jispMetadata.setName("JEDI package");
 		jispMetadata.setVersion("1.0");
 		jispMetadata.setDescription(ConfigurationFactory.getConfiguration()
 				.getString("editor.metadata.description"));
@@ -166,9 +169,9 @@ public class DownloadPackageAction extends ActionWithErrorSupport {
 		if (!authors.hasNext()) {
 			JispAuthor jispAuthor = new JispAuthor();
 			jispAuthor.setName("J.E.D.I.");
-			jispMetadata.addJispAuthor(jispAuthor);			
+			jispMetadata.addJispAuthor(jispAuthor);
 		}
-		jispMetadata.setHome(ConfigurationFactory.getConfiguration()
-				.getString("editor.metadata.home"));
+		jispMetadata.setHome(ConfigurationFactory.getConfiguration().getString(
+				"editor.metadata.home"));
 	}
 }

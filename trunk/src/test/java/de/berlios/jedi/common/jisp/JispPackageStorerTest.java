@@ -43,7 +43,7 @@ public class JispPackageStorerTest extends TestCase {
 	 * </p>
 	 * <p>
 	 * An iterator for the list is get, and it's tested that all the returned
-	 * elements are the ones they should be based on the criteria above
+	 * elements are the ones they should be based on the criteria above.
 	 * </p>
 	 * 
 	 * @throws JDOMException
@@ -68,35 +68,119 @@ public class JispPackageStorerTest extends TestCase {
 
 			Iterator listIterator = list.iterator();
 
-			assertEquals("icondef.xml", listIterator.next());
+			assertEquals("JispPackageForTests/icondef.xml", listIterator.next());
 
 			Document icondefActual = new SAXBuilder()
 					.build(new ByteArrayInputStream((byte[]) listIterator
 							.next()));
 			assertEquals(icondefExpected.toString(), icondefActual.toString());
 
-			assertEquals(jispPackageForTests.jispObject1_1.getName(),
-					listIterator.next());
+			assertEquals("JispPackageForTests/"
+					+ jispPackageForTests.jispObject1_1.getName(), listIterator
+					.next());
 			assertEquals(jispPackageForTests.jispObject1_1.getData(),
 					listIterator.next());
 
-			assertEquals(jispPackageForTests.jispObject2_1.getName(),
-					listIterator.next());
+			assertEquals("JispPackageForTests/"
+					+ jispPackageForTests.jispObject2_1.getName(), listIterator
+					.next());
 			assertEquals(jispPackageForTests.jispObject2_1.getData(),
 					listIterator.next());
 
-			assertEquals(jispPackageForTests.jispObject3_1.getName(),
-					listIterator.next());
+			assertEquals("JispPackageForTests/"
+					+ jispPackageForTests.jispObject3_1.getName(), listIterator
+					.next());
 			assertEquals(jispPackageForTests.jispObject3_1.getData(),
 					listIterator.next());
 
-			assertEquals(jispPackageForTests.jispObject4_1.getName(),
-					listIterator.next());
+			assertEquals("JispPackageForTests/"
+					+ jispPackageForTests.jispObject4_1.getName(), listIterator
+					.next());
 			assertEquals(jispPackageForTests.jispObject4_1.getData(),
 					listIterator.next());
 
-			assertEquals(jispPackageForTests.jispObject4_2.getName(),
+			assertEquals("JispPackageForTests/"
+					+ jispPackageForTests.jispObject4_2.getName(), listIterator
+					.next());
+			assertEquals(jispPackageForTests.jispObject4_2.getData(),
 					listIterator.next());
+
+			assertFalse(listIterator.hasNext());
+		} catch (JispIncompletePackageException e) {
+			fail("A JispIncompletePackageException occured when storing the JispPackage: "
+					+ e.getMessage());
+		}
+	}
+
+	/**
+	 * <p>
+	 * Stores a package specifying the root directory name using the dummy
+	 * subclass created to test.<br>
+	 * Store method using the dummy class stores the JispPackage in a list. The
+	 * first element stored is icondef, and then all the objects in the order
+	 * JispPackage.getJispIconIterator() returns them.
+	 * </p>
+	 * <p>
+	 * An iterator for the list is get, and it's tested that all the returned
+	 * elements are the ones they should be based on the criteria above.
+	 * </p>
+	 * 
+	 * @throws JDOMException
+	 *             If a JDOMException when parsing the stored icondef file
+	 *             occurs.
+	 * @throws IOException
+	 *             If a IOException when parsing the stored icondef file occurs.
+	 * @throws JispIncompletePackageException
+	 *             If the expected icondef.xml used for tests isn't valid.
+	 */
+	public void testStoreString() throws JDOMException, IOException,
+			JispIncompletePackageException {
+		JispPackageForTests jispPackageForTests = new JispPackageForTests();
+
+		Document icondefExpected = new JispPackageToIcondefXml(
+				jispPackageForTests.jispPackage).toIcondefXml();
+
+		try {
+			List list = new ArrayList();
+			new JispPackageStorerDummy(jispPackageForTests.jispPackage, list)
+					.store("palpatine/");
+
+			Iterator listIterator = list.iterator();
+
+			assertEquals("palpatine/icondef.xml", listIterator.next());
+
+			Document icondefActual = new SAXBuilder()
+					.build(new ByteArrayInputStream((byte[]) listIterator
+							.next()));
+			assertEquals(icondefExpected.toString(), icondefActual.toString());
+
+			assertEquals("palpatine/"
+					+ jispPackageForTests.jispObject1_1.getName(), listIterator
+					.next());
+			assertEquals(jispPackageForTests.jispObject1_1.getData(),
+					listIterator.next());
+
+			assertEquals("palpatine/"
+					+ jispPackageForTests.jispObject2_1.getName(), listIterator
+					.next());
+			assertEquals(jispPackageForTests.jispObject2_1.getData(),
+					listIterator.next());
+
+			assertEquals("palpatine/"
+					+ jispPackageForTests.jispObject3_1.getName(), listIterator
+					.next());
+			assertEquals(jispPackageForTests.jispObject3_1.getData(),
+					listIterator.next());
+
+			assertEquals("palpatine/"
+					+ jispPackageForTests.jispObject4_1.getName(), listIterator
+					.next());
+			assertEquals(jispPackageForTests.jispObject4_1.getData(),
+					listIterator.next());
+
+			assertEquals("palpatine/"
+					+ jispPackageForTests.jispObject4_2.getName(), listIterator
+					.next());
 			assertEquals(jispPackageForTests.jispObject4_2.getData(),
 					listIterator.next());
 
