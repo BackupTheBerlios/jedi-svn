@@ -1,5 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xml="http://www.w3.org/XML/1998/namespace">
+	<xs:simpleType name="iso8601Date">
+		<xs:union memberTypes="xs:gYear xs:gYearMonth xs:date"/>
+	</xs:simpleType>
+	
 	<xs:element name="jedi">
 		<xs:complexType>
 			<xs:sequence>
@@ -10,6 +14,25 @@
 								<xs:complexType>
 									<xsd:attribute name="id" type="xs:string" use="required"/>
 									<xs:sequence>
+										<xs:element name="jispMetadata">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="name" type="xs:string"/>
+													<xs:element name="version" type="xs:string"/>
+													<xs:element name="description" type="xs:string"/>
+													<xs:element name="jispAuthor" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="name" type="xs:string"/>
+																<xs:element name="jid" type="xs:string"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xsl:element>
+													<xs:element name="creation" type="iso8601Date"/>
+													<xs:element name="home" type="xs:string"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
 										<xs:element name="jispIcon" minOccurs="0" maxOccurs="unbounded">
 											<xs:complexType>
 												<xsd:attribute name="id" type="xs:string" use="required"/>
@@ -18,8 +41,8 @@
 														<xs:complexType>
 															<xsd:attribute name="id" type="xs:string" use="required"/>
 															<xs:sequence>
-																<xs:element name="content" type="xs:string">
-																<xs:element name="src" type="xs:string">
+																<xs:element name="content" type="xs:string"/>
+																<xs:element name="src" type="xs:string"/>
 															</xs:sequence>
 														</xs:complexType>
 													</xs:element>
@@ -27,7 +50,7 @@
 														<xs:complexType>
 															<xsd:attribute name="id" type="xs:string" use="required"/>
 															<xs:sequence>
-																<xs:element name="text" type="xs:string">
+																<xs:element name="text" type="xs:string"/>
 															</xs:sequence>
 														</xs:complexType>
 													</xs:element>
