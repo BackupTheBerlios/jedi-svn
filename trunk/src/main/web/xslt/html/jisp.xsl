@@ -31,6 +31,7 @@
 		<xsl:param name="formType"/>
 		<div class="jispPackage">
 			<h3>Package</h3>
+			<xsl:apply-templates select="jispMetadata"/>
 			<xsl:if test="$formType='addPackageForm'">
 				<xsl:call-template name="actionElementForm">
 					<xsl:with-param name="actionType" select="'Add'"/>
@@ -49,6 +50,43 @@
 					</xsl:for-each>
 				</div>
 			</xsl:if>
+		</div>
+	</xsl:template>
+	
+	<!--
+		Creates the representation of the jisp metadata.
+		All the elements in the metadata are showed, a paragraph for each element.
+	-->
+	<xsl:template match="jispMetadata">
+		<div class="jispMetadata">
+			<xsl:element name="p">
+				<xsl:value-of select="name"/>
+				<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
+				<xsl:value-of select="version"/>
+			</xsl:element>
+			<xsl:element name="p">
+				<xsl:text disable-output-escaping="yes">Description:&amp;nbsp;</xsl:text>
+				<xsl:value-of select="description"/>
+			</xsl:element>
+			<xsl:for-each select="jispAuthor">
+				<xsl:element name="p">
+					<xsl:text disable-output-escaping="yes">Author:&amp;nbsp;</xsl:text>
+					<xsl:value-of select="name"/>
+				</xsl:element>
+			</xsl:for-each>
+			<xsl:element name="p">
+				<xsl:text disable-output-escaping="yes">Creation date:&amp;nbsp;</xsl:text>
+				<xsl:value-of select="creation"/>
+			</xsl:element>
+			<xsl:element name="p">
+				<xsl:text disable-output-escaping="yes">Home:&amp;nbsp;</xsl:text>
+				<xsl:element name="a">
+					<xsl:attribute name="href">
+						<xsl:value-of select="home"/>
+					</xsl:attribute>
+					<xsl:value-of select="home"/>
+				</xsl:element>
+			</xsl:element>
 		</div>
 	</xsl:template>
 	

@@ -74,7 +74,7 @@ public class JispPackagesListViewAction extends ViewAction {
 
 		document.getRootElement().addContent(
 				jispPackageToXml.createJispPackagesListElement(
-						jispPackagesList, false));
+						jispPackagesList, true));
 
 		request.setAttribute(Keys.NEXT_FORWARD_NAME, "jispPackagesListView");
 
