@@ -34,6 +34,7 @@ public class CommonJispTestSuite {
 		suite.addTest(new TestSuite(JispStoredWrapperTest.class));
 		suite.addTest(new TestSuite(JispStoredToJispPackageTest.class));
 		suite.addTest(new TestSuite(JispPackageStorerTest.class));
+		suite.addTest(new TestSuite(JispUtilTest.class));
 		return suite;
 	}
 

@@ -19,6 +19,7 @@ import de.berlios.jedi.common.entity.jisp.JispFile;
 import de.berlios.jedi.common.entity.jisp.JispPackage;
 import de.berlios.jedi.common.exception.DataException;
 import de.berlios.jedi.common.jisp.JispStoredToJispPackage;
+import de.berlios.jedi.common.jisp.JispUtil;
 import de.berlios.jedi.common.jisp.exception.JispInvalidIcondefException;
 import de.berlios.jedi.common.jisp.exception.JispStoredException;
 import de.berlios.jedi.data.admin.AdminDataService;
@@ -39,7 +40,11 @@ public class AdminLogicService {
 	 * Saves a JispFile, so the equivalent JispPackage can be got later.<br>
 	 * If the JispPackage contained in the JispFile was already stored, it will
 	 * be updated. The JispPackage is identified by its name and version (stored
-	 * in its JispMetadata object).
+	 * in its JispMetadata object).<br>
+	 * Before saving the JispPackage, the JispObjects are rearranged. They are
+	 * moved (keeping also the directories they were in, if any) to a directory
+	 * called like the package's name, removing the white spaces and
+	 * capitalizing the first letter of the words.
 	 * 
 	 * @param jispFile
 	 *            The JispFile to save.
@@ -57,8 +62,11 @@ public class AdminLogicService {
 	public void saveJispFile(JispFile jispFile)
 			throws JispInvalidIcondefException, JispStoredException,
 			DataException {
-		new AdminDataService().saveJispPackage(new JispStoredToJispPackage(
-				new JispFileWrapper(jispFile)).toJispPackage());
+		JispPackage jispPackage = new JispStoredToJispPackage(
+				new JispFileWrapper(jispFile)).toJispPackage();
+		JispUtil.rearrangeJispObjects(jispPackage);
+
+		new AdminDataService().saveJispPackage(jispPackage);
 	}
 
 	/**

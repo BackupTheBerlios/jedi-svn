@@ -22,6 +22,7 @@ import de.berlios.jedi.common.entity.jisp.JispFile;
 import de.berlios.jedi.common.entity.jisp.JispPackage;
 import de.berlios.jedi.common.exception.DataException;
 import de.berlios.jedi.common.jisp.JispStoredToJispPackage;
+import de.berlios.jedi.common.jisp.JispUtil;
 import de.berlios.jedi.common.jisp.exception.JispInvalidIcondefException;
 import de.berlios.jedi.common.jisp.exception.JispStoredException;
 import de.berlios.jedi.logic.admin.AdminLogicService;
@@ -82,6 +83,11 @@ public class LogicServiceTest extends TestCase {
 			adminLogicService.saveJispFile(jispFileOk2);
 			adminLogicService.saveJispFile(jispFileOkEdited);
 
+			//Rearranging expected JispPackages to compare with them
+			JispUtil.rearrangeJispObjects(jispPackageOk);
+			JispUtil.rearrangeJispObjects(jispPackageOk2);
+			JispUtil.rearrangeJispObjects(jispPackageOkEdited);
+			
 			// Testing the getJispPackagesList method
 			Iterator iterator = new LogicService().getJispPackagesList()
 					.iterator();

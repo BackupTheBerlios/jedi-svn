@@ -102,10 +102,11 @@ public abstract class JispPackageStorer {
 	 *             If metadata or icons aren't complete.
 	 * @throws UnsupportedOperationException
 	 *             If server doesn't support UTF-8 encoding.
+	 * @see JispUtil#getDefaultRootDirectoryName(JispPackage)
 	 */
 	protected void store() throws JispIncompletePackageException,
 			UnsupportedOperationException {
-		store(getDefaultRootDirectoryName());
+		store(JispUtil.getDefaultRootDirectoryName(jispPackage));
 	}
 
 	/**
@@ -132,37 +133,6 @@ public abstract class JispPackageStorer {
 		}
 		addIcondef(rootDirectoryName);
 		addObjects(rootDirectoryName);
-	}
-
-	/**
-	 * Returns the default root directory name got from the package name.<br>
-	 * The default root directory name is got from the package's name, removing
-	 * the white spaces and capitalizing the first letter of the words.
-	 * 
-	 * @return The default root directory name.
-	 */
-	private String getDefaultRootDirectoryName() {
-		String defaultRootDirectoryName = "";
-
-		String packageName = jispPackage.getJispMetadata().getName();
-		packageName = packageName.trim();
-
-		int i = 0;
-		while (i != -1) {
-			packageName = Character.toUpperCase(packageName.charAt(i))
-					+ packageName.substring(i + 1);
-			i = packageName.indexOf(" ");
-			if (i != -1) {
-				defaultRootDirectoryName = defaultRootDirectoryName
-						+ packageName.substring(0, i);
-				i++;
-			} else {
-				defaultRootDirectoryName = defaultRootDirectoryName
-						+ packageName.substring(0);
-			}
-		}
-
-		return defaultRootDirectoryName;
 	}
 
 	/**

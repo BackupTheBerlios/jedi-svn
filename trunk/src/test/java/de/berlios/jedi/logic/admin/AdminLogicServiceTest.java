@@ -21,6 +21,7 @@ import de.berlios.jedi.common.entity.jisp.JispFile;
 import de.berlios.jedi.common.entity.jisp.JispPackage;
 import de.berlios.jedi.common.exception.DataException;
 import de.berlios.jedi.common.jisp.JispStoredToJispPackage;
+import de.berlios.jedi.common.jisp.JispUtil;
 import de.berlios.jedi.common.jisp.exception.JispInvalidIcondefException;
 import de.berlios.jedi.common.jisp.exception.JispStoredException;
 import de.berlios.jedi.logic.LogicService;
@@ -93,6 +94,10 @@ public class AdminLogicServiceTest extends TestCase {
 			adminLogicService.saveJispFile(jispFileOk);
 			adminLogicService.saveJispFile(jispFileOk2);
 
+			//Rearranging expected JispPackages to compare with them
+			JispUtil.rearrangeJispObjects(jispPackageOkExpected);
+			JispUtil.rearrangeJispObjects(jispPackageOk2Expected);
+			
 			// Verifying that JispPackages were saved
 			Iterator iterator = new LogicService().getJispPackagesList()
 					.iterator();
@@ -154,9 +159,12 @@ public class AdminLogicServiceTest extends TestCase {
 			adminLogicService.deleteJispPackage((JispPackage) iteratorToDelete
 					.next());
 
-			// Verifying that the JispPackage was deleted
+			//Rearranging expected JispPackages to compare with them
 			JispPackage jispPackageOk2 = new JispStoredToJispPackage(
 					new JispFileWrapper(jispFileOk2)).toJispPackage();
+			JispUtil.rearrangeJispObjects(jispPackageOk2);
+
+			// Verifying that the JispPackage was deleted
 			Iterator iterator = new LogicService().getJispPackagesList()
 					.iterator();
 			assertEquals(jispPackageOk2, iterator.next());
