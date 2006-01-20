@@ -43,11 +43,23 @@ public class JispAuthor implements Cloneable, Serializable {
 	private String jid;
 
 	/**
-	 * Creates a new author, with its name and jid as null.
+	 * The author's email address.
+	 */
+	private String email;
+
+	/**
+	 * The author's webpage.
+	 */
+	private String www;
+
+	/**
+	 * Creates a new author, with its name, jid, email and webpage as null.
 	 */
 	public JispAuthor() {
 		name = null;
 		jid = null;
+		email = null;
+		www = null;
 	}
 
 	/**
@@ -69,6 +81,11 @@ public class JispAuthor implements Cloneable, Serializable {
 				.equals(jispAuthor.name)))
 			return false;
 		if (!(jid == null ? jispAuthor.jid == null : jid.equals(jispAuthor.jid)))
+			return false;
+		if (!(email == null ? jispAuthor.email == null : email
+				.equals(jispAuthor.email)))
+			return false;
+		if (!(www == null ? jispAuthor.www == null : www.equals(jispAuthor.www)))
 			return false;
 		return true;
 	}
@@ -101,6 +118,12 @@ public class JispAuthor implements Cloneable, Serializable {
 		if (name != null) {
 			clone.name = new String(name);
 		}
+		if (email != null) {
+			clone.email = new String(email);
+		}
+		if (www != null) {
+			clone.www = new String(www);
+		}
 
 		return clone;
 	}
@@ -112,6 +135,15 @@ public class JispAuthor implements Cloneable, Serializable {
 	 */
 	public String toString() {
 		return "name: " + name + " jid: " + jid;
+	}
+
+	/**
+	 * Returns the email.
+	 * 
+	 * @return The email.
+	 */
+	public String getEmail() {
+		return email;
 	}
 
 	/**
@@ -133,6 +165,25 @@ public class JispAuthor implements Cloneable, Serializable {
 	}
 
 	/**
+	 * Returns the webpage.
+	 * 
+	 * @return The webpage.
+	 */
+	public String getWww() {
+		return www;
+	}
+
+	/**
+	 * Sets the email.
+	 * 
+	 * @param email
+	 *            The email to set.
+	 */
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	/**
 	 * Sets the jid.
 	 * 
 	 * @param jid
@@ -150,5 +201,15 @@ public class JispAuthor implements Cloneable, Serializable {
 	 */
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	/**
+	 * Sets the webpage.
+	 * 
+	 * @param webpage
+	 *            The webpage to set.
+	 */
+	public void setWww(String webpage) {
+		this.www = webpage;
 	}
 }

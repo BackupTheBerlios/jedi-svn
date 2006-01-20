@@ -223,6 +223,8 @@ public class JispPackageToXml {
 	 * &lt;jispAuthor&gt;<br>
 	 * &nbsp;&nbsp;&lt;name&gt;theName&lt;/name&gt;<br>
 	 * &nbsp;&nbsp;&lt;jid&gt;theJID&lt;/jid&gt;<br>
+	 * &nbsp;&nbsp;&lt;email&gt;theEmail&lt;/email&gt;<br>
+	 * &nbsp;&nbsp;&lt;www&gt;theWebpage&lt;/www&gt;<br>
 	 * &lt;/jispAuthor&gt;
 	 * </p>
 	 * 
@@ -243,6 +245,16 @@ public class JispPackageToXml {
 		jid.setText(jispAuthor.getJid());
 
 		jispAuthorElement.addContent(jid);
+
+		Element email = new Element("email");
+		email.setText(jispAuthor.getEmail());
+
+		jispAuthorElement.addContent(email);
+
+		Element www = new Element("www");
+		www.setText(jispAuthor.getWww());
+
+		jispAuthorElement.addContent(www);
 
 		return jispAuthorElement;
 	}

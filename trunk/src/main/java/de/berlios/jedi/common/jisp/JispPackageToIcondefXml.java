@@ -145,6 +145,8 @@ public class JispPackageToIcondefXml {
 			Element author = addRequiredSimpleElement(metaElement, "author",
 					jispAuthor.getName());
 			addOptionalAttribute(author, "jid", jispAuthor.getJid());
+			addOptionalAttribute(author, "email", jispAuthor.getEmail());
+			addOptionalAttribute(author, "www", jispAuthor.getWww());
 		}
 	}
 

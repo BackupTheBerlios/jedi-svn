@@ -19,6 +19,8 @@
 									<xsd:simpleContent>
 										<xsd:extension base="xsd:string">
 											<xsd:attribute name="jid" type="xsd:string" use="optional"/>
+											<xsd:attribute name="email" type="xsd:string" use="optional"/>
+											<xsd:attribute name="www" type="xsd:string" use="optional"/>
 										</xsd:extension>
 									</xsd:simpleContent>
 								</xsd:complexType>

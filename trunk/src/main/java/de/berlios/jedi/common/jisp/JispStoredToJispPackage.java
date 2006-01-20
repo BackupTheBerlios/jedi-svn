@@ -127,6 +127,10 @@ public class JispStoredToJispPackage {
 			jispAuthor.setName(authorElement.getText());
 			if (authorElement.getAttributeValue("jid") != null)
 				jispAuthor.setJid(authorElement.getAttributeValue("jid"));
+			if (authorElement.getAttributeValue("email") != null)
+				jispAuthor.setEmail(authorElement.getAttributeValue("email"));
+			if (authorElement.getAttributeValue("www") != null)
+				jispAuthor.setWww(authorElement.getAttributeValue("www"));
 
 			jispMetadata.addJispAuthor(jispAuthor);
 		}

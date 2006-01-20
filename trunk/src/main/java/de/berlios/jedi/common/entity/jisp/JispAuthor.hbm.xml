@@ -11,5 +11,7 @@
 		
 		<property name="name"/>
 		<property name="jid"/>
+		<property name="email"/>
+		<property name="www"/>
 	</class>
 </hibernate-mapping>

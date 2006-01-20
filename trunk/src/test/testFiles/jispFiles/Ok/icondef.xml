@@ -4,8 +4,8 @@
 		<name>JEDI Ok test</name>
 		<version>1.0</version>
 		<description>Test Jisp File for JEDI Project</description>
-		<author jid="danxuliu@jabber.org">Daniel Calviño Sánchez</author>
-		<author>Jisp Editor Directly on Internet project</author>
+		<author jid="danxuliu@jabber.org" email="kalvy@users.berlios.de">Daniel Calviño Sánchez</author>
+		<author www="http://jedi.berlios.de">Jisp Editor Directly on Internet project</author>
 		<creation>2005-01-29</creation>
 		<home>http://petra.euitio.uniovi.es/~i1646668</home>
 	</meta>

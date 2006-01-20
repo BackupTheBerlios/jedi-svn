@@ -65,31 +65,58 @@
 				<xsl:value-of select="version"/>
 			</xsl:element>
 			<xsl:element name="p">
-				<xsl:text disable-output-escaping="yes">Description:&amp;nbsp;</xsl:text>
+				<xsl:text disable-output-escaping="yes">Description: </xsl:text>
 				<xsl:value-of select="description"/>
 			</xsl:element>
 			<xsl:for-each select="jispAuthor">
-				<xsl:element name="p">
-					<xsl:text disable-output-escaping="yes">Author:&amp;nbsp;</xsl:text>
-					<xsl:value-of select="name"/>
-				</xsl:element>
+				<xsl:apply-templates select="."/>
 			</xsl:for-each>
 			<xsl:element name="p">
-				<xsl:text disable-output-escaping="yes">Creation date:&amp;nbsp;</xsl:text>
+				<xsl:text disable-output-escaping="yes">Creation date: </xsl:text>
 				<xsl:value-of select="creation"/>
 			</xsl:element>
-			<xsl:element name="p">
-				<xsl:text disable-output-escaping="yes">Home:&amp;nbsp;</xsl:text>
-				<xsl:element name="a">
-					<xsl:attribute name="href">
+			<xsl:if test="home != ''">
+				<xsl:element name="p">
+					<xsl:text disable-output-escaping="yes">Home: </xsl:text>
+					<xsl:element name="a">
+						<xsl:attribute name="href">
+							<xsl:value-of select="home"/>
+						</xsl:attribute>
 						<xsl:value-of select="home"/>
-					</xsl:attribute>
-					<xsl:value-of select="home"/>
+					</xsl:element>
 				</xsl:element>
-			</xsl:element>
+			</xsl:if>
 		</div>
 	</xsl:template>
 	
+	<!--
+		Creates the representation of a JispAuthor.
+		The representation is a paragraph containing the name and jid, email and www if they exist.
+	-->
+	<xsl:template match="jispAuthor">
+		<xsl:element name="p">
+			<xsl:text disable-output-escaping="yes">Author: </xsl:text>
+			<xsl:value-of select="name"/>
+			<xsl:if test="jid != ''">
+				<xsl:text disable-output-escaping="yes">&amp;nbsp;&amp;nbsp; Jid: </xsl:text>
+				<xsl:value-of select="jid"/>
+			</xsl:if>
+			<xsl:if test="email != ''">
+				<xsl:text disable-output-escaping="yes">&amp;nbsp;&amp;nbsp; Email: </xsl:text>
+				<xsl:value-of select="email"/>
+			</xsl:if>
+			<xsl:if test="www != ''">
+				<xsl:text disable-output-escaping="yes">&amp;nbsp;&amp;nbsp; Www: </xsl:text>
+				<xsl:element name="a">
+					<xsl:attribute name="href">
+						<xsl:value-of select="www"/>
+					</xsl:attribute>
+					<xsl:value-of select="www"/>
+				</xsl:element>
+			</xsl:if>
+		</xsl:element>
+	</xsl:template>
+
 	<!--
 		Creates the representation of a jisp icon.
 		This will be all its objects, all its texts.
