@@ -15,17 +15,21 @@
 package de.berlios.jedi.common.jisp;
 
 import java.util.Iterator;
+import java.util.Map;
 
 import de.berlios.jedi.common.entity.jisp.JispIcon;
 import de.berlios.jedi.common.entity.jisp.JispObject;
 import de.berlios.jedi.common.entity.jisp.JispPackage;
+import de.berlios.jedi.common.entity.jisp.JispPackagesList;
 
 /**
- * <p>Utility class to work with JispPackages.<br>
+ * <p>
+ * Utility class to work with JispPackages.<br>
  * All the methods are utility methods and can be accessed statically.
  * </p>
  * <p>
- * Provides a method to get the default root directory name for a package.
+ * Provides a method to get the default root directory name for a package,
+ * rearrange JispObjects in a JispPackage...
  * </p>
  */
 public class JispUtil {
@@ -63,7 +67,7 @@ public class JispUtil {
 
 		return defaultRootDirectoryName;
 	}
-	
+
 	/**
 	 * Rearranges the JispObjects in the JispPackage.<br>
 	 * The JispObjects are moved (keeping also the directories they were in, if
@@ -86,6 +90,26 @@ public class JispUtil {
 						+ "/" + jispObject.getName();
 				jispObject.setName(name);
 			}
+		}
+	}
+
+	/**
+	 * Adds the JispPackages from the JispPackagesList in the given Map,
+	 * indexing them by the default name of the root directory.<br>
+	 * If two packages have the same default root directory name, the second
+	 * saved overwrites the first.
+	 * 
+	 * @param map
+	 *            The Map to add the JispPackages to.
+	 * @param jispPackagesList
+	 *            The list of the JispPackages to be added.
+	 */
+	public static void indexJispPackagesByDefaultRootDirectoryName(Map map,
+			JispPackagesList jispPackagesList) {
+		Iterator jispPackagesIterator = jispPackagesList.iterator();
+		while (jispPackagesIterator.hasNext()) {
+			JispPackage jispPackage = (JispPackage) jispPackagesIterator.next();
+			map.put(getDefaultRootDirectoryName(jispPackage), jispPackage);
 		}
 	}
 }

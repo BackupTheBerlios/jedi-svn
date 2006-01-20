@@ -325,4 +325,11 @@ public class JispMetadata implements Cloneable, Serializable {
 	public boolean removeJispAuthor(JispAuthor jispAuthor) {
 		return jispAuthors.remove(jispAuthor);
 	}
+
+	/**
+	 * Removes all the JispAuthors.
+	 */
+	public void clearJispAuthors() {
+		jispAuthors.clear();
+	}
 }
