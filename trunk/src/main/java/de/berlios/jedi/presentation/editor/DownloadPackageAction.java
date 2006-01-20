@@ -235,7 +235,7 @@ public class DownloadPackageAction extends ActionWithErrorSupport {
 				String jispObjectName = jispObject.getName();
 				String rootDirectory = jispObjectName.substring(0,
 						jispObjectName.indexOf("/"));
-				System.out.println("Root directory: " + rootDirectory);
+
 				if (!usedJispPackagesList.contains(jispPackagesMap
 						.get(rootDirectory))) {
 					usedJispPackagesList
@@ -308,7 +308,7 @@ public class DownloadPackageAction extends ActionWithErrorSupport {
 		while (jispPackagesIterator.hasNext()) {
 			JispMetadata jispMetadataToAdd = ((JispPackage) jispPackagesIterator
 					.next()).getJispMetadata();
-			System.out.println("Metadata: " + jispMetadataToAdd);
+
 			addJispAuthorsFromJispMetadata(jispMetadata, jispMetadataToAdd);
 		}
 	}
@@ -333,7 +333,7 @@ public class DownloadPackageAction extends ActionWithErrorSupport {
 
 			jispAuthorToAdd.setName(jispAuthorToAdd.getName() + " - "
 					+ jispMetadataToAdd.getName());
-			System.out.println("JispAuthor: " + jispAuthorToAdd);
+
 			if (!jispMetadata.containsJispAuthor(jispAuthorToAdd)) {
 				jispMetadata.addJispAuthor(jispAuthorToAdd);
 			}
