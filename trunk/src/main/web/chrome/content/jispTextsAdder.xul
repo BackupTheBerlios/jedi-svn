@@ -19,7 +19,7 @@
 	<script type="application/x-javascript" src="js/jispTextsAdder.js"/>
 	
 	<commandset id="jispTextsAdderCommands">
-		<command id="addTextCmd" oncommand="addSelectedText();"/>
+		<command id="addTextCmd" oncommand="addSelectedText();" disabled="true"/>
 		<command id="closeJispTextsAdderWindowCmd" oncommand="closeJispTextsAdderWindow();"/>
 	</commandset>
 	

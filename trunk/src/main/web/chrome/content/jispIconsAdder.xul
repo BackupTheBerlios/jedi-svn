@@ -22,7 +22,7 @@
 	<script type="application/x-javascript" src="js/overlay/jispPackagesViewer.js"/>
 	
 	<commandset id="jispIconsAdderCommands">
-		<command id="addSelectedItemsCmd" oncommand="addSelectedItems();"/>
+		<command id="addSelectedItemsCmd" oncommand="addSelectedItems();" disabled="true"/>
 		<command id="closeJispIconsAdderWindowCmd" oncommand="closeJispIconsAdderWindow();"/>
 	</commandset>
 	

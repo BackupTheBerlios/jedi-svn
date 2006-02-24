@@ -1,11 +1,26 @@
 /**
  * Inits the jispIconsAdder.
- * It also sets the jispPackagesViewerRequest and inits the jispPackagesViewer.
+ * It sets the jispPackagesViewerRequest and the jispPackagesContentsOnSelectDo.
+ * It also inits the jispPackagesViewer.
  */
 function jispIconsAdderInit() {
 	jispPackagesViewerRequest = prefix + "JispPackagesListView.do";
+	jispPackagesContentsOnSelectDo = "jispPackagesContentsOnSelect();";
 	jispPackagesViewerInit();
-} 
+}
+
+/**
+ * Event handler for select event in jispPackagesContent.
+ * It enables the addSelectedItemsCmd if there is any icon selected, or the package element. Otherwise, it disables the command.
+ */
+function jispPackagesContentsOnSelect() {
+	var addSelectedItemsCmd = document.getElementById("addSelectedItemsCmd");
+	if (document.getElementById("jispPackagesContents").selectedItems.length == 0) {
+		addSelectedItemsCmd.setAttribute("disabled", "true");
+	} else {
+		addSelectedItemsCmd.setAttribute("disabled", "false");
+	}
+}
 
 /**
  * Adds the selected items to the JispPackage.

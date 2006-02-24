@@ -11,41 +11,49 @@ function jispEditorInit() {
 }
 
 /**
- * Event handler for select event in jispObjectsContent.
- * It enables the removeSelectedIconsCmd if there is any icon selected, or the package element. Otherwise, it disables the command.
- * If there is any icon selected it also sets the jispIconId.
+ * Event handler for select event in jispPackagesContent.
+ * It enables the removeSelectedIconsCmd if there is any icon selected, or the package element (and there is also at least an icon). Otherwise, it disables the command.
+ * If there is an icon selected it also sets the jispIconId (if there are no icons selected, or more than one, it sets it to "").
  */
 function jispPackagesContentsOnSelect() {
+	setJispIconId("");
 	var removeSelectedIconsCmd = document.getElementById("removeSelectedIconsCmd");
 	if (document.getElementById("jispPackagesContents").selectedItems.length == 0) {
 		removeSelectedIconsCmd.setAttribute("disabled", "true");
-		setJispIconId("");
 	} else {
-		removeSelectedIconsCmd.setAttribute("disabled", "false");
-
 		var selectedItem = document.getElementById("jispPackagesContents").selectedItem;
 		if (selectedItem.label == "Icon") {
-			setJispIconId(document.getElementById("jispPackagesContents").selectedItem.value);
+			if (document.getElementById("jispPackagesContents").selectedItems.length == 1) {
+				setJispIconId(document.getElementById("jispPackagesContents").selectedItem.value);
+			}
+			removeSelectedIconsCmd.setAttribute("disabled", "false");
 		} else {
-			setJispIconId("");
+			if (document.getElementById("jispPackagesContents").getRowCount()==1) {
+				removeSelectedIconsCmd.setAttribute("disabled", "true");
+			} else {
+				removeSelectedIconsCmd.setAttribute("disabled", "false");
+			}
 		}
 	}
 	document.getElementById("jispIconIdElement").setAttribute("jispIconIdValue", jispIconId);
 }
 
 /**
- * Reloads the JispPackagesView.
+ * Reloads the JispPackagesView and enables the downloadPackageCmd.
  * Called by the JispPackagesAdder through the hidden button in the JispPackagesEditor linked to it when an icon is added
  * in the JispPackagesAdder.
  */
 function addIconsToPackage() {
 	reloadJispPackagesView();
+
+	document.getElementById("downloadPackageCmd").setAttribute("disabled", "false");
 }
 
 /**
  * Removes all the selected icons.
  * If the Package element is selected, all the icons in the package are removed.
  * It sets the jispIconIdElement to "" and reloads the JispPackagesView.
+ * If no icons are left in the package after removing the selected icons, it disables the downloadPackageCmd.
  */
 function removeSelectedIcons() {
 	var packagesList = document.getElementById("jispPackagesContents");
@@ -68,6 +76,13 @@ function removeSelectedIcons() {
 	packagesList.clearSelection();
 
 	reloadJispPackagesView();
+
+	//The jispPackagesContents must be get again because it was modified by reloadJispPackagesView.
+	//Not getting it again throws an exception
+	packagesList = document.getElementById("jispPackagesContents");
+	if (packagesList.getRowCount()==1) {
+		document.getElementById("downloadPackageCmd").setAttribute("disabled", "true");
+	}
 }
 
 /**

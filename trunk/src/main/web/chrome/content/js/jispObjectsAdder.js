@@ -6,14 +6,28 @@ var jispIconSelectedId;
 /**
  * Inits the jispObjectsAdder.
  * It sets the jispIconSelectedId using the hidden jispIconIdElement in the opener JispObjectsEditor.
- * It also sets the jispObjectsViewerRequest and inits the jispObjectsViewer.
+ * It also sets the jispObjectsViewerRequest and the jispObjectsContentsOnSelectDo.
+ * It also inits the jispObjectsViewer.
  */
 function jispObjectsAdderInit() {
-	jispObjectsViewerRequest = prefix + "JispObjectsListView.do";
-
 	jispIconSelectedId = window.opener.document.getElementById("jispIconIdElement").getAttribute("jispIconIdValue");
 
+	jispObjectsViewerRequest = prefix + "JispObjectsListView.do";
+	jispObjectsContentsOnSelectDo = "jispObjectsContentsOnSelect();";
 	jispObjectsViewerInit();
+}
+
+/**
+ * Event handler for select event in jispObjectsContent.
+ * It enables the addSelectedObjectsCmd if there is any object selected. Otherwise, it disables the command.
+ */
+function jispObjectsContentsOnSelect() {
+	var addSelectedObjectsCmd = document.getElementById("addSelectedObjectsCmd");
+	if (document.getElementById("jispObjectsContents").selectedItems.length == 0) {
+		addSelectedObjectsCmd.setAttribute("disabled", "true");
+	} else {
+		addSelectedObjectsCmd.setAttribute("disabled", "false");
+	}
 }
 
 /**

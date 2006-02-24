@@ -30,7 +30,7 @@
 		<command id="addIconsToPackageCmd" oncommand="addIconsToPackage();"/>
 		<command id="openIconsAdderCmd" oncommand="openIconsAdder();"/>
 		<command id="removeSelectedIconsCmd" oncommand="removeSelectedIcons();" disabled="true"/>
-		<command id="downloadPackageCmd" oncommand="downloadPackage();"/>
+		<command id="downloadPackageCmd" oncommand="downloadPackage();" disabled="true"/>
 	</commandset>
 	
 	<vbox id="jispEditor" flex="1">
