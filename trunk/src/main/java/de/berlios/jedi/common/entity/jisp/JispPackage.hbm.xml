@@ -8,7 +8,7 @@
 		<id name="id" access="field">
 			<generator class="native"/>
 		</id>
-		<one-to-one name="jispMetadata" cascade="all,delete-orphan"/>
+		<one-to-one name="jispMetadata" cascade="all"/>
 		<list name="jispIcons" access="field" cascade="all,delete-orphan">
 			<key/>
 			<list-index column="sortOrder"/>
