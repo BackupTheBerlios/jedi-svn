@@ -1,0 +1,24 @@
+@import "style.css";
+
+
+.runJEDI a {
+	display: block;
+
+	margin: 1em 1em 2em 1em;
+	padding: 1em;
+
+	border-width: thin;
+	border-color: black;
+	border-style: solid;
+
+	color: #0000CC;
+	background-color: #B0FF7A;
+
+	text-align: center;
+	text-decoration: none;
+}
+
+.runJEDI a:hover {
+	color: #4040CC;
+	background-color: #D0FF9A;
+}

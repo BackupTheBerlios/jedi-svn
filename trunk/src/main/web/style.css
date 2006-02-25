@@ -7,10 +7,51 @@ form p {
 }
 
 
+.anchorLink, .anchorLink:hover {
+	color: inherit;
+}
+
+
+a {
+	color: #0000FF;
+}
+
+a:hover {
+	color: #6060FF;
+}
+
+
+h2 {
+	color: #007025;
+}
+
+h3 {
+	color: #728400;
+}
+
+
+
+/**
+ * Main style
+ */
 body {
-	padding : 0;
-	border-width : 0;
-	margin : 0;
+	padding: 0;
+	border-width: 0;
+	margin: 0;
+
+	background-color: #D5EEFF;
+
+/* 	font-size: smaller; */
+}
+
+#main {
+	margin: 2em;
+	padding: 1em;
+
+	border-style: solid;
+	border-width: thin;
+
+	background-color: #FFFFFF;
 }
 
 
@@ -19,36 +60,47 @@ body {
  * Menu style
  */
 #menu {
-	top : 0;
-	float : left;
-	width :20%;
+	top: 0;
+	float: left;
+	width: 20%;
 
-	border-right-style : solid;
-	border-right-width : thin;
+	border-right-style: solid;
+	border-right-width: thin;
 }
 
 #menu ul {
 	list-style: none;
+	padding: 0em;
+}
+
+#menu ul ul {
+	margin-left: 1em;
 }
 
 #menu a {
-	display : block;
-	padding : 1em 1em 1em 1em;
+	display: block;
+	padding: 1em 1em 1em 1em;
+
+	color: #580080;
+	text-decoration: none;
 }
 
+#menu a:hover {
+	color: #8C00D8;
+}
 
 
 /**
  * Content style
  */
 #content {
-	top : 0;
-	margin-left : 20%;
+	top: 0;
+	margin-left: 20%;
 
-	padding : 1em;
+	padding: 1em;
 	
-	border-left-style : solid;
-	border-left-width : thin;
+	border-left-style: solid;
+	border-left-width: thin;
 }
 
 
@@ -130,7 +182,7 @@ body {
 }
 
 .jispObject, .jispText {
-	display:inline;
+	display: inline;
 	margin-right: 1em;
 }
 
