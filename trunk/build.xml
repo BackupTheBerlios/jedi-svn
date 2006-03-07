@@ -5,8 +5,8 @@
 <!--               By Daniel Calviño Sánchez                            -->
 <!-- ================================================================== -->
 <!-- Based on Build XML file for DASDI subject from EUITIO in UNIOVI    -->
-<!-- 				By Daniel F. LANVIN			-->
-<!-- 				Universidad de Oviedo 			-->
+<!--                            By Daniel F. LANVIN                     -->
+<!--                            Universidad de Oviedo                   -->
 <!-- ****************************************************************** -->
 
 <project name="Jisp Editor Directly on Internet" default="war" basedir=".">
@@ -42,7 +42,8 @@
 	<property name="debug" value="off"/>
 	<property name="optimize" value="on"/>
 	<property name="deprecation" value="off"/>
-	
+	<property name="target" value="1.4"/>
+	<property name="source" value="1.4"/>
 	
 	
 	<!-- ================================================================== -->
@@ -146,12 +147,14 @@
 	<!-- Compiles the source directory                                       -->
 	<!-- =================================================================== -->
 	
-	<target name="compile" depends="prepare">		
+	<target name="compile" depends="prepare">
 		<javac	srcdir="${src.java.dir}"
 				destdir="${build.dest}"
 				debug="${debug}"
 				deprecation="${deprecation}"
-				optimize="${optimize}">
+				optimize="${optimize}"
+				target="${target}"
+				source="${source}">
 			<classpath>
 				<pathelement path="${build.dest}"/>
 				<fileset dir="${lib.dir}">
