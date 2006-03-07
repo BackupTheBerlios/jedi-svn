@@ -1,0 +1,43 @@
+Installing J.E.D.I.
+-------------------
+
+COMPILATION:
+The dist directory contains the war file to be deployed. If you don't have this directory, or is empty, run Ant in the base directory of the uncompressed package. It will compile the app and create a war file in the dist directory.
+
+
+
+CONFIGURATION:
+Once you have the war file, you can configure some things to fit your environment:
+The logging settings can be modified editing the /WEB-INF/classes/log4j.properties file in the war file. It's simply an Apache Log4j properties file.
+
+However, the J.E.D.I. and settings can be overriden not only editing the internal files, but also with jediOverriden.cfg.xml file in the classpath.
+
+The hibernate.cfg.xml is a Hibernate XML configuration file. In the J.E.D.I. settings you can specify the name of the Hibernate config file, so you can use a concrete file instead the default hibernate.cfg.xml as long as the specified file is in the classpath.
+
+
+
+J.E.D.I. Settings
+The J.E.D.I. settings are stored in jediDefault.cfg.xml (in the war file) or in jediOverriden.cfg.xml (anywhere in the classpath). The jediDefault.cfg.xml is mandatory, and the jediOverriden.cfg.xml optional. When found, the jediOverriden.cfg.xml overrides the properties from the jediDefault.cfg.xml, but doesn't replace the whole configuration. That is, if a property isn't overriden in the jediOverriden.cfg.xml, the one from jediDefault.cfg.xml is used.
+
+The J.E.D.I. configurable properties are those:
+-admin.enableValidation: boolean value to enable the icondef.xml validation using the XML schema (recommended).
+
+-admin.password: string with the admin password. Please, set it!!! ;).
+
+-editor.metadata.description: string with the description that will appear in every package downloaded from the application.
+
+-editor.metadata.home: string with the homepage that will appear in every package downloaded from the application. You're encouraged to set it.
+
+-data.jispPackagesCacheEnabled: boolean value to enable the cache for jisp packages. The list with the available packages is stored in the user's session. Caching them makes that all the sessions share the same objects. However, if enabled, the application can't be deployed along various JVM.
+
+-path.JISPSchema: string with the path to the XML Schema of icondef.xml file. The default value is good enough for most situations, although if jedi.berlios.de is unreachable, no new packages can be added (as long as it remains unreachable).
+
+-path.hibernateConfigFile</strong>: the name of the Hibernate config file to be used.
+
+
+You're also encouraged to edit the src/main/web/index.html file to add some contact information to the admin, so people can contact you if they have packages that could be uploaded.
+
+
+
+DEPLOYMENT:
+Once you have configured everything to your taste, simply deploy the file in your application server. It will depend on what server you are using. In JBoss, for example, you'll simply need to copy the war file in the server/default/deploy directory.

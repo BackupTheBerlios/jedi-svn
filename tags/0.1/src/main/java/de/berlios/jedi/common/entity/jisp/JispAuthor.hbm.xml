@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="de.berlios.jedi.common.entity.jisp.JispAuthor">
+		<id name="id" access="field">
+			<generator class="native"/>
+		</id>
+		
+		<property name="name"/>
+		<property name="jid"/>
+		<property name="email"/>
+		<property name="www"/>
+	</class>
+</hibernate-mapping>

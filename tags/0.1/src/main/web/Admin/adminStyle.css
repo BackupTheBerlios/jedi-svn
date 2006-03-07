@@ -1,0 +1,61 @@
+@import "style.css";
+
+/**
+ * Logout link
+ */
+#logout {
+	text-align: right;
+}
+
+#logout a {
+	border-style: dashed;
+	border-width: thin;
+
+	text-decoration: none;
+
+	color: #6666FF;
+}
+
+#logout a:hover {
+	color: #AAAAFF;
+	background-color: #FFFFFF;
+}
+
+
+
+/**
+ * Upload section
+ */
+#upload {
+	margin-bottom: 3em;
+
+	border-bottom-style: solid;
+	border-bottom-width: thin;
+}
+
+
+
+/**
+ * JispPackages
+ */
+.jispPackage {
+	margin: 1em;
+	padding: 1em;
+
+	border-style: solid;
+	border-width: thin;
+}
+
+.jispPackageInfo {
+	display: inline;
+
+	margin-right: 2em;
+}
+
+.jispPackageInfo p {
+	display: inline;
+}
+
+.jispPackageIcons {
+	display: inline;
+}

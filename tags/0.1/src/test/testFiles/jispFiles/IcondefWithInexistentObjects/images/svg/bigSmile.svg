@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN"
+"http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   version="1.0"
+   x="0.0000000"
+   y="0.0000000"
+   width="113.38583"
+   height="113.38583"
+   id="svg1">
+  <defs
+     id="defs3" />
+  <metadata
+     id="metadata4">
+    <rdf:RDF
+       id="RDF5">
+      <cc:Work
+         rdf:about=""
+         id="Work6">
+        <dc:format
+           id="format7">image/svg+xml</dc:format>
+        <dc:type
+           id="type9"
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <path
+     d="M 113.38583 56.692913 A 56.692913 56.692913 0 1 0 0.0000000,56.692913 A 56.692913 56.692913 0 1 0 113.38583 56.692913 z"
+     style="fill:#ffffff;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;"
+     id="path912" />
+  <path
+     d="M 42.519685 35.433071 A 7.0866141 7.0866141 0 1 0 28.346457,35.433071 A 7.0866141 7.0866141 0 1 0 42.519685 35.433071 z"
+     style="fill:#000000;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;"
+     id="path1534" />
+  <path
+     d="M 85.039373 35.433071 A 7.0866141 7.0866141 0 1 0 70.866145,35.433071 A 7.0866141 7.0866141 0 1 0 85.039373 35.433071 z"
+     style="fill:#000000;fill-opacity:1.0000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;"
+     id="path1535" />
+  <path
+     d="M 70.866142 14.173227 A 21.259842 0.0000000 0 1 0 28.346458,14.173227 A 21.259842 0.0000000 0 1 0 70.866142 14.173227 z"
+     style="fill:#ff0000;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;"
+     id="path2781" />
+  <path
+     d="M 28.346457,70.866141 C 28.346457,99.212598 85.039370,99.212598 85.039370,70.866141"
+     style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;"
+     id="path2785" />
+  <path
+     d="M 28.346457,70.866141 L 85.039370,70.866141 L 85.039370,70.866141"
+     style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.0000000pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1.0000000;"
+     id="path2786" />
+</svg>

@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<?xul-overlay href="jispTextsViewer.xul"?>
+
+<!DOCTYPE overlay [
+	
+	<!ENTITY addTextButton.label "Add text...">
+	<!ENTITY addTextButton.acceskey "A">
+	
+	<!ENTITY removeSelectedTextsButton.label "Remove selected texts">
+	<!ENTITY removeSelectedTextsButton.acceskey "R">
+	
+	<!ENTITY textLabel.value "Text: ">
+	
+]>
+
+<overlay id="jispTextsEditor" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	
+	<script type="application/x-javascript" src="../js/global.js"/>
+	<script type="application/x-javascript" src="../js/overlay/jispTextsEditor.js"/>
+	<script type="application/x-javascript" src="../js/overlay/jispTextsViewer.js"/>
+	
+	<commandset id="jispTextsEditorCommands">
+		<command id="addTextsToIconCmd" oncommand="addTextsToIcon();"/>
+		<command id="addTextCmd" oncommand="addText();" disabled="true"/>
+		<command id="removeSelectedTextsCmd" oncommand="removeSelectedTexts();" disabled="true"/>
+	</commandset>
+
+	<vbox id="jispTextsEditor" flex="1">
+		<vbox id="jispTextsViewer" flex="1"/>
+		
+		<hbox pack="end" align="center">
+			<spacer flex="1"/>
+			<button id="addTextsToIcon" command="addTextsToIconCmd" hidden="true"/>
+			
+			<button id="addTextButton" label="&addTextButton.label;" default="true" command="addTextCmd" accesskey="&addTextButton.acceskey;"/>
+			<button id="removeSelectedTextsButton" label="&removeSelectedTextsButton.label;" command="removeSelectedTextsCmd" accesskey="&removeSelectedTextsButton.acceskey;"/>
+		</hbox>
+	</vbox>
+</overlay>

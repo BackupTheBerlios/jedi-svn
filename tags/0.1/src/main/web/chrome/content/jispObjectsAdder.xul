@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<?xul-overlay href="overlay/jispObjectsViewer.xul"?>
+
+<!DOCTYPE overlay [
+	
+	<!ENTITY window.title "Objects adder">
+	
+	<!ENTITY objectsAdderAddButton.label "Add">
+	<!ENTITY objectsAdderAddButton.accesskey "A">
+	
+	<!ENTITY objectsAdderCloseButton.label "Close">
+	<!ENTITY objectsAdderCloseButton.accesskey "C">
+	
+]>
+
+<window id="jispObjectsAdder" title="&window.title;" onload="jispObjectsAdderInit();" persist="screenX screenY width height" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	
+	<script type="application/x-javascript" src="js/global.js"/>
+	<script type="application/x-javascript" src="js/jispObjectsAdder.js"/>
+	<script type="application/x-javascript" src="js/overlay/jispObjectsViewer.js"/>
+	
+	<commandset id="jispObjectsAdderCommands">
+		<command id="addSelectedObjectsCmd" oncommand="addSelectedObjects();" disabled="true"/>
+		<command id="closeObjectsAdderWindowCmd" oncommand="closeObjectsAdderWindow();"/>
+	</commandset>
+	
+	<vbox id="jispObjectsAdder" flex="1">
+		<vbox id="jispObjectsViewer"/>
+		
+		<hbox>
+			<spacer flex="1"/>
+			<button id="objectsAdderAddButton" label="&objectsAdderAddButton.label;" command="addSelectedObjectsCmd" accesskey="&objectsAdderAddButton.accesskey;"/>
+			
+			<button id="objectsAdderCloseButton" label="&objectsAdderCloseButton.label;" command="closeObjectsAdderWindowCmd" accesskey="&objectsAdderCloseButton.accesskey;"/>
+		</hbox>
+	</vbox>
+</window> 

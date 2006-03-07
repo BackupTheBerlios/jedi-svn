@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<?xul-overlay href="jispTextsEditor.xul"?>
+<?xul-overlay href="jispObjectsEditor.xul"?>
+
+<!DOCTYPE overlay [
+	
+	<!ENTITY jispTextsEditorTab.label "Texts">
+	<!ENTITY jispObjectsEditorTab.label "Objects">
+	
+]>
+
+<overlay id="jispIconEditor" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	
+	<script type="application/x-javascript" src="../js/global.js"/>
+	<script type="application/x-javascript" src="../js/overlay/jispIconEditor.js"/>
+	
+	<commandset id="jispTextsEditorCommands"/>
+	<commandset id="jispObjectsEditorCommands"/>
+		
+	<vbox id="jispIconEditor" flex="1">
+		<spacer id="jispIconIdElement" hidden="true" jispIconIdValue=""/>
+		<tabbox id="jispIconEditorTabList" flex="1">
+			<tabs>
+				<tab label="&jispTextsEditorTab.label;"/>
+				<tab label="&jispObjectsEditorTab.label;"/>
+			</tabs>
+			<tabpanels flex="1">
+				<tabpanel id="jispTextsEditorTab">
+					<vbox id="jispTextsEditor" flex="1"/>
+				</tabpanel>
+				<tabpanel id="jispObjectsEditorTab">
+					<vbox id="jispObjectsEditor" flex="1"/>
+				</tabpanel>
+			</tabpanels>
+		</tabbox>
+	</vbox>
+</overlay>

@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<?xul-overlay href="overlay/jispPackagesViewer.xul"?>
+
+<!DOCTYPE overlay [
+	
+	<!ENTITY window.title "Icons adder">
+	
+	<!ENTITY iconsAdderAddButton.label "Add">
+	<!ENTITY iconsAdderAddButton.accesskey "A">
+	
+	<!ENTITY iconsAdderCloseButton.label "Close">
+	<!ENTITY iconsAdderCloseButton.accesskey "C">
+	
+]>
+
+<window id="jispIconsAdder" title="&window.title;" onload="jispIconsAdderInit();" persist="screenX screenY width height" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	
+	<script type="application/x-javascript" src="js/global.js"/>
+	<script type="application/x-javascript" src="js/jispIconsAdder.js"/>
+	<script type="application/x-javascript" src="js/overlay/jispPackagesViewer.js"/>
+	
+	<commandset id="jispIconsAdderCommands">
+		<command id="addSelectedItemsCmd" oncommand="addSelectedItems();" disabled="true"/>
+		<command id="closeJispIconsAdderWindowCmd" oncommand="closeJispIconsAdderWindow();"/>
+	</commandset>
+	
+	<vbox id="jispIconsAdder" flex="1">
+		<vbox id="jispPackagesViewer"/>
+		
+		<hbox>
+			<button id="iconsAdderAddButton" label="&iconsAdderAddButton.label;" command="addSelectedItemsCmd" accesskey="&iconsAdderAddButton.accesskey;"/>
+			
+			<button id="iconsAdderCloseButton" label="&iconsAdderCloseButton.label;" command="closeJispIconsAdderWindowCmd" accesskey="&iconsAdderCloseButton.accesskey;"/>
+		</hbox>
+	</vbox>
+</window> 

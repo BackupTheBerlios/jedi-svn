@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<configuration>
+	<admin>
+		<enableValidation>true</enableValidation>
+		<password>password</password>
+	</admin>
+	
+	<editor>
+		<metadata>
+			<description>Please, refer to the server from where you downloaded the package for further information about the objects (images, sounds...). In the downloaded jisp file, the objects are stored in directories named like the package from where they were got.</description>
+			<home>http://jedi.berlios.de</home>
+		</metadata>
+	</editor>
+	
+	<data>
+		<jispPackagesCacheEnabled>true</jispPackagesCacheEnabled>
+	</data>
+	
+	<path>
+		<JISPSchema>http://jedi.berlios.de/schema/JISPSchema.xsd</JISPSchema>
+		<hibernateConfigFile>hibernate.cfg.xml</hibernateConfigFile>
+	</path>
+</configuration>

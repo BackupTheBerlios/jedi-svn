@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<?xul-overlay href="overlay/jispPackagesViewer.xul"?>
+<?xul-overlay href="overlay/jispIconEditor.xul"?>
+
+<!DOCTYPE overlay [
+	
+	<!ENTITY iconsAdderButton.label "Add icons...">
+	<!ENTITY iconsAdderButton.accesskey "S">
+	
+	<!ENTITY removeSelectedIconsButton.label "Remove selected icons">
+	<!ENTITY removeSelectedIconsButton.accesskey "R">
+	
+	<!ENTITY downloadPackageButton.label "Download">
+	<!ENTITY downloadPackageButton.accesskey "D">
+	
+]>
+
+<page id="jispEditor" onload="jispEditorInit()" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	
+	<script type="application/x-javascript" src="js/global.js"/>
+	<script type="application/x-javascript" src="js/jispEditor.js"/>
+	<script type="application/x-javascript" src="js/overlay/jispPackagesViewer.js"/>
+	
+	<commandset id="jispTextsEditorCommands"/>
+	<commandset id="jispObjectsEditorCommands"/>
+	
+	<commandset id="jispEditorCommands">
+		<command id="addIconsToPackageCmd" oncommand="addIconsToPackage();"/>
+		<command id="openIconsAdderCmd" oncommand="openIconsAdder();"/>
+		<command id="removeSelectedIconsCmd" oncommand="removeSelectedIcons();" disabled="true"/>
+		<command id="downloadPackageCmd" oncommand="downloadPackage();" disabled="true"/>
+	</commandset>
+	
+	<vbox id="jispEditor" flex="1">
+		
+		<vbox id="jispPackagesViewer" flex="1"/>
+		
+		<splitter resizeafter="farthest"/>
+		
+		<groupbox>
+			<hbox>
+				<spacer flex="1"/>
+				<button id="addIconsToPackage" command="addIconsToPackageCmd" hidden="true"/>
+				
+				<button id="iconsAdderButton" label="&iconsAdderButton.label;" command="openIconsAdderCmd" accesskey="&iconsAdderButton.accesskey;"/>
+				<button id="removeSelectedIconsButton" label="&removeSelectedIconsButton.label;" command="removeSelectedIconsCmd" accesskey="&removeSelectedIconsButton.accesskey;"/>
+			</hbox>
+			<button id="downloadPackageButton" label="&downloadPackageButton.label;" command="downloadPackageCmd" accesskey="&downloadPackageButton.accesskey;"/>
+			
+		</groupbox>
+		
+		<vbox id="jispIconEditor" flex="1"/>
+	</vbox>
+</page>
+
+ 
+ 

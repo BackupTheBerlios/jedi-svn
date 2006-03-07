@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<icondef>
+	<meta>
+		<name>JEDI Ok 2 test</name>
+		<version>1.0</version>
+		<description>Another test Jisp File for JEDI Project</description>
+		<author jid="danxuliu@jabber.org">Daniel Calviño Sánchez</author>
+		<author>Jisp Editor Directly on Internet project</author>
+		<creation>2005-02-06</creation>
+	</meta>
+	<icon>
+		<text>:)</text>
+		<text>:-)</text>
+		<object mime="image/png">images/happy.png</object>
+		<object mime="image/svg+xml">images/svg/happy.svg</object>
+	</icon>
+	<icon>
+		<text>::smile::</text>
+		<object mime="image/png">images/happy.png</object>
+	</icon>
+	<icon>
+		<text>:D</text>
+		<text>:-D</text>
+		<text>::veryHappy::</text>
+		<object mime="image/png">images/veryHappy.png</object>
+	</icon> 
+</icondef>

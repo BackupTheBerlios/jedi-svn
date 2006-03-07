@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ****************************************************************** -->
+<!-- Build XML file for Jisp Editor Directly on Internet                -->
+<!--               By Daniel Calviño Sánchez                            -->
+<!-- ================================================================== -->
+<!-- Based on Build XML file for DASDI subject from EUITIO in UNIOVI    -->
+<!--                            By Daniel F. LANVIN                     -->
+<!--                            Universidad de Oviedo                   -->
+<!-- ****************************************************************** -->
+
+<project name="Jisp Editor Directly on Internet" default="war" basedir=".">
+	
+	<!-- Project General Properties -->
+	<property name="name" value="Jisp Editor Directly on Internet"/>
+	<property name="version" value="0.0.5"/>
+	<property name="project" value="JEDI (Jisp Editor Directly on Internet)"/>
+	<property environment="env"/>
+	
+	<!-- Compilation and packaging destination directories -->
+	<property name="build.compiler" value="modern"/>
+	<property name="build.dir" value="build"/>
+	<property name="build.dest" value="${build.dir}/classes"/>
+	<property name="build.web" value="${build.dir}/web"/>
+	<property name="build.web-inf" value="${build.web}/WEB-INF"/>
+	<property name="build.javadoc" value="${build.dir}/doc"/>
+	
+	<!-- Compilation and packaging source directories -->
+	<property name="src.dir" value="src/main"/>
+	<property name="src.java.dir" value="${src.dir}/java"/>
+	<property name="src.web.dir" value="${src.dir}/web"/>
+	<property name="src.web-inf.dir" value="${src.web.dir}/WEB-INF"/>
+	<property name="lib.dir" value="lib"/>
+	
+	<!-- Distribution directory -->
+	<property name="dist.dir" value="dist"/>
+	
+	<!-- File name -->
+	<property name="war.file.name" value="jedi.war"/>
+	
+	<!-- Miscelaneous -->
+	<property name="debug" value="off"/>
+	<property name="optimize" value="on"/>
+	<property name="deprecation" value="off"/>
+	<property name="target" value="1.4"/>
+	<property name="source" value="1.4"/>
+	
+	
+	<!-- ================================================================== -->
+	<!-- Prints compilation variables                                       -->
+	<!-- ================================================================== -->
+	
+	<target name="env">
+		<echo message="build.compiler = ${build.compiler}"/>
+		<echo message="java.class.path = ${java.class.path}"/>
+		<echo message="java.home = ${java.home}"/>
+		<echo message="user.home = ${user.home}"/>
+		<echo message="jboss.home = ${env.JBOSS_HOME}"/>
+	</target>
+	
+	
+	
+	<!-- =================================================================== -->
+	<!-- Useful file patterns for tasks                                      -->
+	<!-- =================================================================== -->
+	
+	<!-- All source files of the projet. These source files will be copied   -->
+	<!-- to the destination source directory in the prepare task.            -->
+	
+	<patternset id="all.src.files">
+		
+		<!-- All java files -->
+		<include name="**/*.java"/>
+		
+		<!-- All conf files -->
+		<include name="**/*.xml"/>
+		<include name="**/*.properties"/>
+			
+	</patternset>
+	
+	<patternset id="conf.files">
+		
+		<!-- All conf files -->
+		<include name="**/*.xml"/>
+		<include name="**/*.properties"/>
+		
+		<!-- Exclude conf files used for testing -->
+		<exclude name="jediOverriden.cfg.xml"/>
+		<exclude name="hibernateTest.cfg.xml"/>
+		
+	</patternset>
+	
+	<patternset id="bak.files.exclude">
+		
+		<exclude name="**/*.bak"/>
+		<exclude name="**/*.*~"/>
+		
+	</patternset>
+	
+	<patternset id="compile.libs.exclude">
+		
+		<exclude name="servlet-api*.jar"/>
+		
+	</patternset>
+	
+	<patternset id="test.libs.exclude">
+		
+		<exclude name="junit*.jar"/>
+		<exclude name="hsqldb*.jar"/>
+		
+	</patternset>
+	
+	
+	
+	<!-- =================================================================== -->
+	<!-- Prepares the build directory                                        -->
+	<!-- =================================================================== -->
+	
+	<target name="prepare" depends="env">
+		
+		<mkdir dir="${build.dir}"/>
+		<mkdir dir="${build.dest}"/>
+		<mkdir dir="${build.web}"/>
+		<mkdir dir="${build.web-inf}"/>
+		<mkdir dir="${dist.dir}"/>
+		
+		<copy todir="${build.web}">
+			<fileset dir="${src.web.dir}">
+				<include name="**/*.*"/>
+				<patternset refid="bak.files.exclude"/>
+			</fileset>
+		</copy>
+		
+		<copy todir="${build.web-inf}">
+			<fileset dir="${src.web-inf.dir}">
+				<patternset refid="bak.files.exclude"/>
+			</fileset>
+				
+			<fileset file="COPYING"/>
+		</copy>
+		
+	</target>
+	
+	
+	
+	<!-- =================================================================== -->
+	<!-- Compiles the source directory                                       -->
+	<!-- =================================================================== -->
+	
+	<target name="compile" depends="prepare">
+		<javac	srcdir="${src.java.dir}"
+				destdir="${build.dest}"
+				debug="${debug}"
+				deprecation="${deprecation}"
+				optimize="${optimize}"
+				target="${target}"
+				source="${source}">
+			<classpath>
+				<pathelement path="${build.dest}"/>
+				<fileset dir="${lib.dir}">
+					<include name="**/*.jar"/>
+				</fileset>
+			</classpath>
+		</javac>
+		
+		<copy todir="${build.dest}">
+			<fileset dir="${src.java.dir}">
+				<patternset refid="conf.files"/>
+			</fileset>
+		</copy>
+		
+	</target>
+	
+	
+	
+	<!-- =================================================================== -->
+	<!-- Generates .WAR file with the WEB application                        -->
+	<!-- =================================================================== -->
+	
+	<target name="war" depends="compile">
+		<war	warfile="${dist.dir}/${war.file.name}"
+				webxml="${src.web-inf.dir}/web.xml">
+			<fileset dir="${build.web}">
+				<exclude name="**/web.xml"/>
+			</fileset>
+			<lib dir="${lib.dir}">
+				<patternset refid="compile.libs.exclude"/>
+				<patternset refid="test.libs.exclude"/>
+			</lib>
+			<classes dir="${build.dest}"/>
+		</war>
+	</target>
+	
+	
+	
+	<!-- =================================================================== -->
+	<!-- JBOSS deployment                                                    -->
+	<!-- =================================================================== -->
+	
+	<target name="deploy-jboss" depends="war">
+		<copy todir="${env.JBOSS_HOME}/server/default/deploy">
+			<fileset dir="${dist.dir}">
+				<include name="*.war"/>
+			</fileset>
+		</copy>
+	</target>
+	
+	
+	
+	<!-- =================================================================== -->
+	<!-- Cleans build directory                                              -->
+	<!-- =================================================================== -->
+	
+	<target name="clean">
+		<delete dir="${build.dest}"/>
+		<delete dir="${build.web}"/>
+	</target>
+	
+</project>

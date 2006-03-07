@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<icondef>
+  <meta>
+    <name>test</name>
+    <version>1.0</version>
+    <description>none</description>
+    <author>Name</author>
+    <creation>2005-12-02</creation>
+  </meta>
+  <icon>
+    <text>nothing</text>
+    <object mime="none">aDirectory/more 0 array</object>
+  </icon>
+  <icon>
+    <text>nothing nothing</text>
+    <object mime="none">0 array</object>
+    <object mime="none">aDirectory/more 0 array</object>
+  </icon>
+  <icon>
+    <text>nothing nothing nothing</text>
+    <text>have I said nothing?</text>
+    <object mime="none">another 0 array</object>
+  </icon>
+  <icon>
+    <text>still nothing</text>
+    <text>guess what? nothing!</text>
+    <object mime="none">living in a 0 array world (8)</object>
+    <object mime="none">anotherDirectory/andAnother/and finally a 0 array</object>
+  </icon>
+</icondef>
+

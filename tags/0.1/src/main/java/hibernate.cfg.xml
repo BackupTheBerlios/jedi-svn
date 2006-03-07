@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	  "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	  "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	
+	<session-factory>
+		
+		<!-- Database connection settings -->
+		<property name="connection.driver_class">org.hsqldb.jdbcDriver</property>
+		<property name="connection.url">jdbc:hsqldb:/usr/local/java/jboss/server/default/data/hypersonic/localDB</property>
+		<property name="connection.username">sa</property>
+		<property name="connection.password"></property>
+		
+		<!-- JDBC connection pool (use C3P0) -->
+		<property name="hibernate.c3p0.min_size">5</property>
+		<property name="hibernate.c3p0.max_size">20</property>
+		<property name="hibernate.c3p0.timeout">1800</property>
+		<property name="hibernate.c3p0.max_statements">50</property>
+		
+		<!-- SQL dialect -->
+		<property name="dialect">org.hibernate.dialect.HSQLDialect</property>
+		
+		<!-- Drop and re-create the database schema on startup -->
+		<property name="hbm2ddl.auto">update</property>
+		
+		<mapping resource="de/berlios/jedi/common/entity/jisp/JispAuthor.hbm.xml"/>
+		<mapping resource="de/berlios/jedi/common/entity/jisp/JispIcon.hbm.xml"/>
+		<mapping resource="de/berlios/jedi/common/entity/jisp/JispMetadata.hbm.xml"/>
+		<mapping resource="de/berlios/jedi/common/entity/jisp/JispObject.hbm.xml"/>
+		<mapping resource="de/berlios/jedi/common/entity/jisp/JispPackage.hbm.xml"/>
+		<mapping resource="de/berlios/jedi/common/entity/jisp/JispText.hbm.xml"/>
+		
+	</session-factory>
+	
+</hibernate-configuration>

@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xml="http://www.w3.org/XML/1998/namespace">
+<xsd:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
+	<xsd:simpleType name="iso8601Date">
+		<xsd:union memberTypes="xsd:gYear xsd:gYearMonth xsd:date"/>
+	</xsd:simpleType>
+
+	<xsd:element name="icondef">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="meta">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="name" type="xsd:string"/>
+							<xsd:element name="version" type="xsd:string"/>
+							<xsd:element name="description" type="xsd:string" minOccurs="0"/>
+							<xsd:element name="author" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:simpleContent>
+										<xsd:extension base="xsd:string">
+											<xsd:attribute name="jid" type="xsd:string" use="optional"/>
+											<xsd:attribute name="email" type="xsd:string" use="optional"/>
+											<xsd:attribute name="www" type="xsd:string" use="optional"/>
+										</xsd:extension>
+									</xsd:simpleContent>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="creation" type="iso8601Date"/>
+							<xsd:element name="home" type="xsd:string" minOccurs="0"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="icon" minOccurs="1" maxOccurs="unbounded">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="text" minOccurs="1" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:simpleContent>
+										<xsd:extension base="xsd:string">
+											<xsd:attribute ref="xml:lang" use="optional"/>
+										</xsd:extension>
+									</xsd:simpleContent>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="object" minOccurs="1" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:simpleContent>
+										<xsd:extension base="xsd:string">
+											<xsd:attribute name="mime" type="xsd:string" use="required"/>
+										</xsd:extension>
+									</xsd:simpleContent>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>
