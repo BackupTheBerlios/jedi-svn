@@ -1,0 +1,21 @@
+Jisp Editor Directly on Internet (J.E.D.I.)
+-------------------------------------------
+
+ABOUT:
+J.E.D.I. is an effort to create a jisp packages repository. The repository doesn't allow only to download packages, but also customize them before downloading.
+
+It is licensed under the GNU GPL license. You can see the license in the COPYING file. This project is also free as in "free beer".
+
+Jisp packages refers to the files used in Jabber Instant Messaging Clients for specifying exchangeable styles of emoticons. Although it is not standard (is a deferred JEP), the jisp file format is specified in JEP-0038: Icon Styles.
+
+You can find more information about J.E.D.I. and its development in project's page: http://jedi.berlios.de
+
+
+
+INSTALLING:
+If you want to know how to install J.E.D.I. in your own application server, please refer to INSTALL file.
+
+
+
+AUTHOR:
+Daniel Calviño Sánchez <kalvy@users.berlios.de>
