@@ -13,7 +13,7 @@
 	
 	<!-- Project General Properties -->
 	<property name="name" value="Jisp Editor Directly on Internet"/>
-	<property name="version" value="0.0.5"/>
+	<property name="version" value="0.1"/>
 	<property name="project" value="JEDI (Jisp Editor Directly on Internet)"/>
 	<property environment="env"/>
 	
